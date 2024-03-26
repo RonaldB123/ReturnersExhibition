@@ -16,7 +16,10 @@ export function HomePage() {
 
     return (
         <>
-        <h1>Welcome to the home page!</h1>
+            <h1 className="">Welcome to the home page!</h1>
+        <div className="image-border mr-auto ml-auto">
+            <img src="https://i.ebayimg.com/images/g/iYMAAOSw269jXD2D/s-l1200.webp" className="w-full h-full max-w-100 max-h-100"></img>
+        </div>
         </>
     )
 }
