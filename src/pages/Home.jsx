@@ -15,7 +15,7 @@ export function HomePage() {
             setCount((currentCount) => currentCount + increment);
         }
     }
-    
+
     useEffect(() => {
         getArtworks().then(({data}) => {
             setArtworkData(data);
@@ -25,8 +25,8 @@ export function HomePage() {
     return (
         <div className="m-2">
             <h1 className="text-center">Welcome to the home page!</h1>
-        <div className="image-border mr-auto ml-auto">
-            <img src={artworkData[count] ? artworkData[count].images.web.url : <h1>Loading...</h1> } className="w-full h-full max-w-100 max-h-100"></img>
+        <div className="image-border mr-auto ml-auto w-full h max-w-xs max-h-xs rounded-lg mt-10 text-center">
+            <img src={artworkData[count] ? artworkData[count].images.web.url : <h1>Loading...</h1> } className="max-w-full h-25 object-contain flex mr-auto ml-auto"></img>
         </div>
         <div className="text-center m-5">
             <Button icon={<LeftCircleOutlined className="text-xl"/>} onClick={()=> incrementCount(-1)}> </Button>
