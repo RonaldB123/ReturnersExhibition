@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .image-border {
-    border: 50px solid;
+    border: 55px solid;
     border-image-source: url('https://img.freepik.com/premium-photo/black-frame-with-scroll-design-bottom_900775-16634.jpg');
     border-image-slice: 30% fill;
 }
