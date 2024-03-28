@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react"
 import { getArtworks } from "../utility/api"
 import { InfoCircleOutlined, LeftCircleOutlined, RightCircleOutlined } from "@ant-design/icons"
-import { Button, Divider, Drawer, Image, Space } from "antd";
+import { Button, Divider, Drawer, Empty, Image, Space } from "antd";
+import { SearchBar } from "../components/SearchArt";
 
 
 export function HomePage() {
     const [artworkData, setArtworkData] = useState([]); 
     const [count, setCount] = useState(0);
     const [open, setOpen] = useState(false);
+    const [keySearch, setKeySearch] = useState('');
 
     const incrementCount = (increment) => {
         if(increment === -1 && count === 0){
@@ -59,8 +61,9 @@ export function HomePage() {
             <Divider>Did you know ?</Divider>
             <p>{artworkData[count].did_you_know}</p>
             </>
-            : <h1>Loading...</h1> }
+            : <Empty/> }
         </Drawer>
+        <SearchBar setKeySearch={setKeySearch}/>
         </div>
     )
 }
