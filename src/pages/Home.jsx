@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
-import { getArtworks } from "../utility/api"
+import { getArtworks, getSearchedArtworks } from "../utility/api"
 import { InfoCircleOutlined, LeftCircleOutlined, RightCircleOutlined } from "@ant-design/icons"
-import { Button, Divider, Drawer, Empty, Image, Space } from "antd";
+import { Button, Divider, Drawer, Empty, Image, Space, Spin } from "antd";
 import { SearchBar } from "../components/SearchArt";
 
 
@@ -12,7 +12,7 @@ export function HomePage() {
     const [keySearch, setKeySearch] = useState('');
 
     const incrementCount = (increment) => {
-        if(increment === -1 && count === 0){
+        if((increment === -1 && count === 0) || (increment === 1 && count === artworkData.length -1)){
 
         }else{
             setCount((currentCount) => currentCount + increment);
@@ -27,18 +27,28 @@ export function HomePage() {
     }
     
     useEffect(() => {
-        getArtworks().then(({data}) => {
-            setArtworkData(data);
-        }).catch((err)=> console.log(err));
-    },[])
+        if(keySearch === ''){
+            getArtworks().then(({data}) => {
+                setArtworkData(data);
+            }).catch((err)=> console.log(err));
+        }else{
+            getSearchedArtworks(keySearch).then(({data}) => {
+                setArtworkData(data);
+            }).catch((err) => console.log(err));
+        }
+    },[keySearch])
     
     return (
         <div className="m-2">
             <h1 className="text-center">Welcome to the home page!</h1>
         <div className="image-border mr-auto ml-auto w-full max-w-2xl rounded-lg mt-10 text-center">
-            <Image height={350} src={artworkData[count] ? artworkData[count].images.web.url : <h1>Loading...</h1> } className="max-w-full object-contain flex mr-auto ml-auto"></Image>
+            {artworkData.length ? <Image height={350} src={artworkData.length > 0 ? artworkData[count].images.web.url : <Empty/>} className="max-w-full object-contain flex mr-auto ml-auto"></Image> : <Empty/>}
         </div>
         <div className="m-5 max-w-30 flex ml-auto mr-auto justify-center">
+            {keySearch ? <Button onClick={()=>{
+                setKeySearch('')
+                setCount(0)
+                }}>Return</Button> : ""}
             <Button icon={<LeftCircleOutlined className="text-2xl"/>} onClick={()=> incrementCount(-1)}> </Button>
             <Button icon={<InfoCircleOutlined className="text-xl"/>} onClick={showDrawer} className="ml-5 mr-5"></Button>
             <Button icon={<RightCircleOutlined className="text-2xl"/>} onClick={()=> incrementCount(1)}> </Button>
@@ -48,7 +58,7 @@ export function HomePage() {
                 <Button onClick={onClose}>OK</Button>
             </Space>
         }>
-            {artworkData[count] ? <>
+            {artworkData.length >= 1? <>
             <p className="text-2xl sm:text-4xl font-bold underline mb-1">{artworkData[count].title}</p>
             <p className="text-lg mb-1">{artworkData[count].creation_date}</p>
             <p className="underline">{artworkData[count].creators.length === 0 ? "No Artists Found" : artworkData[count].creators[0].description}</p>

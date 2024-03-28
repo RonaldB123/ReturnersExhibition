@@ -6,14 +6,12 @@ export const SearchBar = ({setKeySearch}) => {
     
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(newSearch)
         setKeySearch(newSearch);
-        setSearch('');
     }
 
     return (
         <form onSubmit={handleSubmit}>
-            <Search placeholder="Search for artwork" addonAfter allowClear prefix value={newSearch} onChange={(event) => setSearch(event.target.value)}></Search>
+            <Search placeholder="Search for artwork" prefix allowClear value={newSearch} onChange={(event) => setSearch(event.target.value)}></Search>
         </form>
     )
 }

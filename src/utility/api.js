@@ -14,6 +14,15 @@ export const getArtworks = () => {
     .catch((err) => console.log(err));
 }
 
+export const getSearchedArtworks = (keySearch) => {
+    return clevAPI
+    .get(`?q=${keySearch}&has_image=1&type=Painting`)
+    .then(({data}) => {
+        return data;
+    })
+    .catch((err) => console.log(err));
+}
+
 // const metAPI = axios.create({
 //     baseURL: "https://collectionapi.metmuseum.org/public/collection/v1",
 // })
