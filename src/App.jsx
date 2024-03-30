@@ -4,11 +4,10 @@ import { useState } from "react"
 
 function App() {
   const [favArt, setFavArt] = useState([]);
-
   return (
     <>
       <Routes>
-        <Route path="/" element={<HomePage/>}/>
+        <Route path="/" element={<HomePage setFavArt={setFavArt} favArt={favArt}/>}/>
         
       </Routes>
     </>
