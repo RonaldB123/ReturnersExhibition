@@ -11,7 +11,7 @@ export const SearchBar = ({setKeySearch}) => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <Search placeholder="Search for artwork" prefix allowClear value={newSearch} onChange={(event) => setSearch(event.target.value)}></Search>
+            <Search className="max-w-2xl flex mr-auto ml-auto" placeholder="Search for artwork" prefix allowClear value={newSearch} onChange={(event) => setSearch(event.target.value)}></Search>
         </form>
     )
 }

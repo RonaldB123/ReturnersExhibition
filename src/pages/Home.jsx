@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { getArtworks, getSearchedArtworks } from "../utility/api"
-import { InfoCircleOutlined, LeftCircleOutlined, RightCircleOutlined } from "@ant-design/icons"
-import { Button, Divider, Drawer, Empty, Image, Space, Spin } from "antd";
+import { InfoCircleOutlined, LeftCircleOutlined, RightCircleOutlined, RollbackOutlined, StarFilled, StarOutlined } from "@ant-design/icons"
+import { Button, Col, Divider, Drawer, Empty, Image, Row, Space, Spin } from "antd";
 import { SearchBar } from "../components/SearchArt";
 
 
@@ -10,6 +10,7 @@ export function HomePage() {
     const [count, setCount] = useState(0);
     const [open, setOpen] = useState(false);
     const [keySearch, setKeySearch] = useState('');
+    const [fav, setFav] = useState(false);
 
     const incrementCount = (increment) => {
         if((increment === -1 && count === 0) || (increment === 1 && count === artworkData.length -1)){
@@ -37,22 +38,29 @@ export function HomePage() {
             }).catch((err) => console.log(err));
         }
     },[keySearch])
-    
+
     return (
         <div className="m-2">
             <h1 className="text-center">Welcome to the home page!</h1>
         <div className="image-border mr-auto ml-auto w-full max-w-2xl rounded-lg mt-10 text-center">
             {artworkData.length ? <Image height={350} src={artworkData.length > 0 ? artworkData[count].images.web.url : <Empty/>} className="max-w-full object-contain flex mr-auto ml-auto"></Image> : <Empty/>}
         </div>
-        <div className="m-5 max-w-30 flex ml-auto mr-auto justify-center">
-            {keySearch ? <Button onClick={()=>{
+        <Row justify={"space-between"} className="mt-2 mb-2 max-w-xs mr-auto ml-auto">
+            <Row span={4}>
+            {keySearch ? <Button icon={<RollbackOutlined className="text-xl"/>} onClick={()=>{
                 setKeySearch('')
                 setCount(0)
-                }}>Return</Button> : ""}
+            }}></Button> : <Button icon={<RollbackOutlined className="text-xl"/>} className="invisible"></Button>}
+            </Row>
+            <Row span={4}>
             <Button icon={<LeftCircleOutlined className="text-2xl"/>} onClick={()=> incrementCount(-1)}> </Button>
             <Button icon={<InfoCircleOutlined className="text-xl"/>} onClick={showDrawer} className="ml-5 mr-5"></Button>
             <Button icon={<RightCircleOutlined className="text-2xl"/>} onClick={()=> incrementCount(1)}> </Button>
-        </div>
+            </Row>
+            <Row span={4}>
+                {fav ?<Button onClick={()=> setFav(false)} icon={<StarFilled  className="text-xl" />}></Button> :<Button onClick={()=> setFav(true)} icon={<StarOutlined  className="text-xl" />}></Button>}
+            </Row>
+        </Row>
         <Drawer onClose={onClose} open={open} size="default" extra={
             <Space>
                 <Button onClick={onClose}>OK</Button>
@@ -73,7 +81,9 @@ export function HomePage() {
             </>
             : <Empty/> }
         </Drawer>
-        <SearchBar setKeySearch={setKeySearch}/>
+        <div className="max-w-xs ml-auto mr-auto">
+            <SearchBar setKeySearch={setKeySearch}/>
+        </div>
         </div>
     )
 }
