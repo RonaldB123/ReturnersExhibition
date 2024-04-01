@@ -56,7 +56,7 @@ export function HomePage({setFavArt, favArt}) {
         <div className="m-2">
             <h1 className="text-center">Welcome to the home page!</h1>
         <div className="image-border mr-auto ml-auto w-full max-w-2xl rounded-lg mt-10 text-center">
-            {artworkData.length ? <Image height={350} src={artworkData.length > 0 ? artworkData[count].images.web.url : <Empty/>} className="max-w-full object-contain flex mr-auto ml-auto"></Image> : <Empty/>}
+            {artworkData.length ? <Image height={350} src={artworkData.length > 0 ? artworkData[count].images.web.url : <Empty/>} className="object-contain flex mr-auto ml-auto max-w-full"></Image> : <Empty/>}
         </div>
         
         {/* Image buttons */}

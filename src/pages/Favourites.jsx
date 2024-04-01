@@ -40,7 +40,7 @@ export const FavouritesPage = ({setFavArt, favArt}) => {
         <div className="m-2">
         <h1 className="text-center">Welcome to the Favourites Page!</h1>
         <div className="image-border mr-auto ml-auto w-full max-w-2xl rounded-lg mt-10 text-center">
-            {favArt.length ? <Image height={350} src={favArt.length > 0 && favArt[count] ? favArt[count].images.web.url : <Empty/>} className="max-w-full object-contain flex mr-auto ml-auto"></Image> : <Empty/>}
+            <Image height={350} src={favArt.length > 0 ? favArt[count].images.web.url : <Empty/>} className="max-w-full object-contain flex mr-auto ml-auto"></Image>
         </div>
         </div>
 
