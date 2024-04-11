@@ -16,10 +16,10 @@ export const Menu = ({ favArt }) => {
                 badge={{count:favArt.length}}
                 icon={<MenuOutlined />}
             >
-                <FloatButton icon={<PictureFilled />} tooltip={"Paintings"} />
-                <FloatButton icon={<TrophyFilled />} tooltip={"Antiques/Sculptures"}/>
-                <FloatButton icon={<Link to={"/favourites"}><StarFilled /></Link>} badge={{count:favArt.length}} tooltip={"Favourites"} />
-                <FloatButton icon={<Link to={"/"}><HomeFilled to={"/"}/></Link>} tooltip={"Home"}/>
+                <FloatButton icon={<Link to={"/paintings"}><PictureFilled /></Link>} tooltip={"Paintings"} />
+                <FloatButton icon={<Link to={"/sculptures"}><TrophyFilled/></Link>} tooltip={"Antiques/Sculptures"}/>
+                <FloatButton icon={<Link to={"/favourites"}><StarFilled/></Link>} badge={{count:favArt.length}} tooltip={"Favourites"} />
+                <FloatButton icon={<Link to={"/"}><HomeFilled/></Link>} tooltip={"Home"}/>
             </FloatButton.Group>
         </>
     )
