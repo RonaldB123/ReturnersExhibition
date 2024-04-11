@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
-import { getArtworks, getSearchedArtworks } from "../utility/api"
+import { getArtworks, getSculptureData, getSearchedArtworks } from "../utility/api"
 import { InfoCircleOutlined, LeftCircleOutlined, RightCircleOutlined, RollbackOutlined, StarFilled, StarOutlined } from "@ant-design/icons"
-import { Button, Divider, Drawer, Empty, Image, Row, Space, Spin } from "antd";
+import { Button, Divider, Drawer, Empty, Image, Row, Space, Spin, Tooltip } from "antd";
 import { SearchBar } from "../components/SearchArt";
 
 
