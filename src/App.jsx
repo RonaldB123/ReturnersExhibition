@@ -3,8 +3,6 @@ import { HomePage } from "./pages/Home"
 import { useEffect, useState } from "react"
 import { Menu } from "./components/Menu";
 import { FavouritesPage } from "./pages/Favourites";
-import { PaintingsPage } from "./pages/Paintings";
-import { Sculptures } from "./pages/Sculptures";
 
 function App() {
   const [favArt, setFavArt] = useState([]);
@@ -25,10 +23,8 @@ function App() {
     <>
     <Menu favArt={favArt}/>
       <Routes>
-        <Route path="/" element={<HomePage/>}/>
-        <Route path="/Favourites" element={<FavouritesPage setFavArt={setFavArt} favArt={favArt}/>}/>
-        <Route path="/Paintings" element={<PaintingsPage setFavArt={setFavArt} favArt={favArt}/>} />
-        <Route path="/Sculptures" element={<Sculptures/>}/>
+        <Route path="/" element={<HomePage setFavArt={setFavArt} favArt={favArt}/>}/>
+        <Route path="/favourites" element={<FavouritesPage setFavArt={setFavArt} favArt={favArt}/>}/>
       </Routes>
     </>
   )
