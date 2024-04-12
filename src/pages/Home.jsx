@@ -11,6 +11,7 @@ export function HomePage({setFavArt, favArt}) {
     const [open, setOpen] = useState(false);
     const [keySearch, setKeySearch] = useState('');
     const [fav, setFav] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     const incrementCount = (increment) => {
         if((increment === -1 && count === 0) || (increment === 1 && count === artworkData.length -1)){
@@ -43,20 +44,26 @@ export function HomePage({setFavArt, favArt}) {
         if(keySearch === ''){
             getArtworks().then(({data}) => {
                 setArtworkData(data);
+                setLoading(false);
             }).catch((err)=> console.log(err));
         }else{
+            setLoading(true);
             getSearchedArtworks(keySearch).then(({data}) => {
                 setArtworkData(data);
+                setLoading(false);
             }).catch((err) => console.log(err));
         }
     },[keySearch])
+    
     return (
         <>
         {/* Main Image and Image-Border */}
         <div className="m-2">
             <h1 className="text-center">Welcome to the home page!</h1>
         <div className="image-border mr-auto ml-auto w-full max-w-2xl rounded-lg mt-10 text-center">
-            {artworkData.length ? <Image height={350} src={artworkData.length > 0 ? artworkData[count].images.web.url : <Empty/>} className="object-contain flex mr-auto ml-auto max-w-full"></Image> : <Empty/>}
+            <Spin spinning={loading}>
+                {artworkData.length > 0 && artworkData.length !== 0 ? <Image height={350} src={artworkData.length > 0 ? artworkData[count].images.web.url : <Empty/>} className="object-contain flex mr-auto ml-auto max-w-full"></Image> : <div style={{height:350}}>{artworkData.length === 0 && keySearch ? <Empty description={"No Artwork Found!"}/> : ""}</div>}
+            </Spin>
         </div>
         
         {/* Image buttons */}
@@ -65,6 +72,7 @@ export function HomePage({setFavArt, favArt}) {
             {keySearch
             ?<Button icon={<RollbackOutlined className="text-xl"/>} onClick={()=>{
                 setKeySearch('')
+                setLoading(true);
                 setCount(0)
             }}></Button> 
             : <Button icon={<RollbackOutlined className="text-xl"/>} className="invisible"></Button>
