@@ -5,9 +5,11 @@ import { Menu } from "./components/Menu";
 import { FavouritesPage } from "./pages/Favourites";
 import { SculpturesPage } from "./pages/Sculptures";
 import { PaintingsPage } from "./pages/Paintings";
+import { PageLoader } from "./components/PageLoader";
 
 function App() {
   const [favArt, setFavArt] = useState([]);
+  const [pageLoad, setPageLoad] = useState(true);
 
   useEffect(()=> {
     if(JSON.parse(localStorage.getItem('FavouritedArt')).length === 0){
@@ -23,13 +25,17 @@ function App() {
 
   return (
     <>
-    <Menu favArt={favArt}/>
+    {pageLoad ? <PageLoader setPageLoad={setPageLoad}/> :
+    <div>
+    <Menu pageLoad={pageLoad} favArt={favArt}/>
       <Routes>
-        <Route path="/" element={<HomePage setFavArt={setFavArt} favArt={favArt}/>}/>
+        <Route path="/" element={<HomePage setFavArt={setFavArt} favArt={favArt} setPageLoad={setPageLoad}/>}/>
         <Route path="/favourites" element={<FavouritesPage setFavArt={setFavArt} favArt={favArt}/>}/>
         <Route path="/sculptures" element={<SculpturesPage/>}/>
         <Route path="/paintings" element={<PaintingsPage/>}/>
       </Routes>
+      </div>
+}
     </>
   )
 }

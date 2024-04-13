@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react"
-import { getArtworks, getSculptureData, getSearchedArtworks } from "../utility/api"
+import { getArtworks, getSearchedArtworks } from "../utility/api"
 import { InfoCircleOutlined, LeftCircleOutlined, RightCircleOutlined, RollbackOutlined, StarFilled, StarOutlined } from "@ant-design/icons"
-import { Button, Divider, Drawer, Empty, Image, Row, Space, Spin, Tooltip } from "antd";
+import { Button, Divider, Drawer, Empty, Image, Row, Space, Spin } from "antd";
 import { SearchBar } from "../components/SearchArt";
 
 
-export function HomePage({setFavArt, favArt}) {
+export function HomePage({setFavArt, favArt, setPageLoad}) {
     const [artworkData, setArtworkData] = useState([]); 
     const [count, setCount] = useState(0);
     const [open, setOpen] = useState(false);
@@ -45,6 +45,8 @@ export function HomePage({setFavArt, favArt}) {
             getArtworks().then(({data}) => {
                 setArtworkData(data);
                 setLoading(false);
+                setCount(0)
+                setPageLoad(false);
             }).catch((err)=> console.log(err));
         }else{
             setLoading(true);
@@ -73,7 +75,6 @@ export function HomePage({setFavArt, favArt}) {
             ?<Button icon={<RollbackOutlined className="text-xl"/>} onClick={()=>{
                 setKeySearch('')
                 setLoading(true);
-                setCount(0)
             }}></Button> 
             : <Button icon={<RollbackOutlined className="text-xl"/>} className="invisible"></Button>
             }

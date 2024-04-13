@@ -4,9 +4,10 @@ import { Empty, Image, Spin } from "antd";
 
 
 
-export const SculpturesPage = ({ sculpturesData }) => {
+export const SculpturesPage = () => {
     const [sculptures, setSculptures] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [count, setCount] = useState(0);
 
     useEffect(() => {
         getSculptureData().then((data) => {
@@ -26,12 +27,11 @@ export const SculpturesPage = ({ sculpturesData }) => {
                     </div>
                     <div className="absolute top-0 left-0 w-full h-full z-20 flex justify-center items-start">
                         <Spin spinning={loading}>
-                            <img src={sculptures.length && sculptures ? sculptures[0].images[0].baseimageurl : <Empty />} className="w-48 h-48 md:w-64 md:h-64" />
+                            <Image width={192} height={192} src={sculptures.length && sculptures ? sculptures[0].images[0].baseimageurl : <Empty />} className="w-48 h-48 md:w-64 md:h-64 border border-black rounded-lg"></Image>
                         </Spin>
                     </div>
                 </div>
             </div>
-            
         </>
     )
 }
