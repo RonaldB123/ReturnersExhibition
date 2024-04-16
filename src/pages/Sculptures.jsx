@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react"
-import { getSculptureData } from "../utility/api";
+import { getSculptureData, getSearchedSculptures } from "../utility/api";
 import { Button, Col, Divider, Drawer, Empty, Image, Row, Space, Spin } from "antd";
 import { InfoCircleOutlined, LeftCircleOutlined, RightCircleOutlined, RollbackOutlined, StarFilled, StarOutlined } from "@ant-design/icons";
 import { SearchBar } from "../components/SearchArt";
 
 
 
-export const SculpturesPage = ({ favArt }) => {
+export const SculpturesPage = ({ favArt, setFavArt }) => {
     const [sculptures, setSculptures] = useState([]);
     const [loading, setLoading] = useState(true);
     const [count, setCount] = useState(0);
@@ -23,6 +23,10 @@ export const SculpturesPage = ({ favArt }) => {
                 }
             }).catch((err)=>console.log(err));
         }else{
+            getSearchedSculptures(keySearch).then((data)=> {
+                setSculptures(data);
+                setLoading(false);
+            })
             setLoading(true);
         }
     }, [keySearch])
@@ -105,11 +109,11 @@ export const SculpturesPage = ({ favArt }) => {
                         {fav
                             ? <Button className="bg-white" onClick={() => {
                                 setFav(false);
-                                removeFromFav(artworkData[count].id);
+                                removeFromFav(sculptures[count].id);
                             }} icon={<StarFilled className="text-xl" />}></Button>
                             : <Button className="bg-white" onClick={() => {
                                 setFav(true);
-                                addToFav(artworkData[count]);
+                                addToFav(sculptures[count]);
                             }} icon={<StarOutlined className="text-xl" />}></Button>
                         }
                     </Row>

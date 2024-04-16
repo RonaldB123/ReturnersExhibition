@@ -52,3 +52,15 @@ export const getSculptureData = () => {
         })
         .catch((err)=> console.log(err));
 }
+
+export const getSearchedSculptures = (keySearch) => {
+    return getSculptureData()
+        .then(sculptures => {
+            return sculptures.filter(sculpture => 
+                Object.values(sculpture).some(value =>
+                    typeof value === 'string' && value.toLowerCase().includes(keySearch.toLowerCase())
+                )
+            );
+        })
+        .catch((err)=>console.log(err));
+}

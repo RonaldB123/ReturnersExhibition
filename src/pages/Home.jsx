@@ -91,7 +91,7 @@ export function HomePage({setFavArt, favArt, setPageLoad}) {
                     }
                 }
              }}> </Button>
-            <Button icon={<InfoCircleOutlined className="text-xl"/>} onClick={showDrawer} className="ml-5 mr-5 bg-white"></Button>
+            <Button icon={<InfoCircleOutlined className="text-xl"/>} onClick={showDrawer} className="ml-5 mr-5"></Button>
             <Button className="bg-white" icon={<RightCircleOutlined className="text-2xl"/>} onClick={()=>{
                 incrementCount(1);
                 if(artworkData[count+1]){
