@@ -72,16 +72,16 @@ export function HomePage({setFavArt, favArt, setPageLoad}) {
         <Row justify={"space-between"} className="mt-2 mb-2 max-w-xs mr-auto ml-auto">
             <Row span={4}>
             {keySearch
-            ?<Button icon={<RollbackOutlined className="text-xl"/>} onClick={()=>{
+            ?<Button className="bg-white" icon={<RollbackOutlined className="text-xl"/>} onClick={()=>{
                 setKeySearch('')
                 setLoading(true);
             }}></Button> 
-            : <Button icon={<RollbackOutlined className="text-xl"/>} className="invisible"></Button>
+            : <Button icon={<RollbackOutlined className="text-xl"/>} className="bg-white invisible"></Button>
             }
             </Row>
 
             <Row span={4}>
-            <Button icon={<LeftCircleOutlined className="text-2xl"/>} onClick={()=>{
+            <Button className="bg-white" icon={<LeftCircleOutlined className="text-2xl"/>} onClick={()=>{
                 incrementCount(-1);
                 if(artworkData[count-1]){
                     if(favArt.some(obj=> obj.id === artworkData[count-1].id)){
@@ -91,8 +91,8 @@ export function HomePage({setFavArt, favArt, setPageLoad}) {
                     }
                 }
              }}> </Button>
-            <Button icon={<InfoCircleOutlined className="text-xl"/>} onClick={showDrawer} className="ml-5 mr-5"></Button>
-            <Button icon={<RightCircleOutlined className="text-2xl"/>} onClick={()=>{
+            <Button icon={<InfoCircleOutlined className="text-xl"/>} onClick={showDrawer} className="ml-5 mr-5 bg-white"></Button>
+            <Button className="bg-white" icon={<RightCircleOutlined className="text-2xl"/>} onClick={()=>{
                 incrementCount(1);
                 if(artworkData[count+1]){
                     if(favArt.some(obj=> obj.id === artworkData[count+1].id)){
@@ -105,11 +105,11 @@ export function HomePage({setFavArt, favArt, setPageLoad}) {
             </Row>
             <Row span={4}>
                 {fav 
-                ?<Button onClick={()=>{
+                ?<Button className="bg-white" onClick={()=>{
                     setFav(false);
                     removeFromFav(artworkData[count].id);
                 }} icon={<StarFilled  className="text-xl" />}></Button> 
-                :<Button onClick={()=>{
+                :<Button className="bg-white" onClick={()=>{
                     setFav(true);
                     addToFav(artworkData[count]);
                 }} icon={<StarOutlined  className="text-xl" />}></Button>

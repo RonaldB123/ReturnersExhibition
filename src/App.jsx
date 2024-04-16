@@ -31,7 +31,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage setFavArt={setFavArt} favArt={favArt} setPageLoad={setPageLoad}/>}/>
         <Route path="/favourites" element={<FavouritesPage setFavArt={setFavArt} favArt={favArt}/>}/>
-        <Route path="/sculptures" element={<SculpturesPage favArt={favArt}/>}/>
+        <Route path="/sculptures" element={<SculpturesPage favArt={favArt} setFavArt={setFavArt}/>}/>
         <Route path="/paintings" element={<PaintingsPage/>}/>
       </Routes>
       </div>

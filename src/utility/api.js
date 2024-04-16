@@ -51,5 +51,4 @@ export const getSculptureData = () => {
             }
         })
         .catch((err)=> console.log(err));
-
 }
