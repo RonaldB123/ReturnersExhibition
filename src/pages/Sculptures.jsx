@@ -106,7 +106,7 @@ export const SculpturesPage = ({ favArt, setFavArt }) => {
                         }}> </Button>
                     </Row>
                     <Row span={4}>
-                        {fav
+                        {fav || (sculptures.length && favArt.some(obj=> sculptures[count].id === obj.id))
                             ? <Button className="bg-white" onClick={() => {
                                 setFav(false);
                                 removeFromFav(sculptures[count].id);
@@ -126,10 +126,10 @@ export const SculpturesPage = ({ favArt, setFavArt }) => {
             </Space>
         }>
             {/* Drawer artwork information */}
-            {sculptures.length >= 1? <>
+            {sculptures.length ? <>
             <p className="text-2xl sm:text-4xl font-bold underline mb-1">{sculptures[count].title}</p>
             <p className="text-lg mb-1">{sculptures[count].dated}</p>
-            <p className="underline">{sculptures[count].people}</p>
+            <p className="underline text-lg">{sculptures[count].people ? sculptures[count].people[0].name : "No artist found"}</p>
             <p className="mb-1">{sculptures[count].culture}</p> 
             <p>{sculptures[count].medium}</p>
             <Divider>Description</Divider>

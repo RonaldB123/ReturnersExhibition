@@ -12,10 +12,12 @@ function App() {
   const [pageLoad, setPageLoad] = useState(true);
 
   useEffect(()=> {
-    if(JSON.parse(localStorage.getItem('FavouritedArt')).length === 0){
-      localStorage.setItem('FavouritedArt', JSON.stringify(favArt));
-    }else{
-      setFavArt(JSON.parse(localStorage.getItem('FavouritedArt')));
+    if(JSON.parse(localStorage.getItem('FavouritedArt')) !== null){
+      if(JSON.parse(localStorage.getItem('FavouritedArt')).length === 0){
+        localStorage.setItem('FavouritedArt', JSON.stringify(favArt));
+      }else{
+        setFavArt(JSON.parse(localStorage.getItem('FavouritedArt')));
+      }
     }
   },[])
 

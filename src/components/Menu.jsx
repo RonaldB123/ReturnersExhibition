@@ -14,7 +14,7 @@ export const Menu = ({ favArt, pageLoad }) => {
                         bottom: 5,
                         left: 5
                     }}
-                    badge={{ count: favArt.length }}
+                    badge={{ count: favArt.length || 0 }}
                     icon={<MenuOutlined />}
                 >
                     <FloatButton icon={<Link to={"/paintings"}><PictureFilled /></Link>} tooltip={"Paintings"} />

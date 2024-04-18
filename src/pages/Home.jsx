@@ -43,8 +43,8 @@ export function HomePage({setFavArt, favArt, setPageLoad}) {
     useEffect(() => {
         if(keySearch === ''){
             getArtworks().then(({data}) => {
-                setArtworkData(data);
                 setLoading(false);
+                setArtworkData(data);
                 setCount(0)
                 setPageLoad(false);
             }).catch((err)=> console.log(err));
@@ -104,12 +104,13 @@ export function HomePage({setFavArt, favArt, setPageLoad}) {
                 }}> </Button>
             </Row>
             <Row span={4}>
-                {fav 
+                {fav || (artworkData.length && favArt.some(obj=> artworkData[count].id === obj.id))
                 ?<Button className="bg-white" onClick={()=>{
                     setFav(false);
                     removeFromFav(artworkData[count].id);
                 }} icon={<StarFilled  className="text-xl" />}></Button> 
-                :<Button className="bg-white" onClick={()=>{
+                :
+                <Button className="bg-white" onClick={()=>{
                     setFav(true);
                     addToFav(artworkData[count]);
                 }} icon={<StarOutlined  className="text-xl" />}></Button>
