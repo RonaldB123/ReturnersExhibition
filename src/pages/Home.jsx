@@ -29,15 +29,11 @@ export function HomePage({setFavArt, favArt, setPageLoad}) {
     }
 
     const addToFav = (obj) => {
-        setFavArt((currentArr)=>{
-            return currentArr.concat(obj);
-        });
+        setFavArt(favArt.concat(obj))
     }
 
     const removeFromFav = (objId) => {
-        setFavArt((currentArr)=>{
-            return currentArr.filter(obj=>obj.id !== objId)
-        })
+        setFavArt(favArt.filter(obj=>obj.id !== objId));
     }
 
     useEffect(() => {

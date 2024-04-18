@@ -112,9 +112,10 @@ export const FavouritesPage = ({ setFavArt, favArt }) => {
 
                         {favSculpture.length
                             ? <Button icon={<InfoCircleOutlined className="text-xl" />} onClick={showDrawer} className="ml-5 mr-5 bg-white"></Button>
-                            : <Button disabled icon={<InfoCircleOutlined className="text-xl" />} onClick={showDrawer} className="ml-5 mr-5 bg-white"></Button>}                        <Button icon={<RightCircleOutlined className="text-2xl" />} className="bg-white" onClick={() => {
-                                incrementCount(1);
-                            }}> </Button>
+                            : <Button disabled icon={<InfoCircleOutlined className="text-xl" />} onClick={showDrawer} className="ml-5 mr-5 bg-white"></Button>}
+                    <Button icon={<RightCircleOutlined className="text-2xl" />} className="bg-white" onClick={() => {
+                        incrementCount(1);
+                    }}> </Button>
                     </Row>
                     <Row span={4}>
                         {favSculpture.length
