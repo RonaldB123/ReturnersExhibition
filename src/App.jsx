@@ -27,17 +27,17 @@ function App() {
 
   return (
     <>
-    {pageLoad ? <PageLoader setPageLoad={setPageLoad}/> :
+    {/* {pageLoad ? <PageLoader setPageLoad={setPageLoad}/> : */}
     <div>
     <Menu pageLoad={pageLoad} favArt={favArt}/>
       <Routes>
-        <Route path="/" element={<HomePage setFavArt={setFavArt} favArt={favArt} setPageLoad={setPageLoad}/>}/>
+        <Route path="/" element={<HomePage/>}/>
         <Route path="/favourites" element={<FavouritesPage setFavArt={setFavArt} favArt={favArt}/>}/>
         <Route path="/sculptures" element={<SculpturesPage favArt={favArt} setFavArt={setFavArt}/>}/>
-        <Route path="/paintings" element={<PaintingsPage/>}/>
+        <Route path="/paintings" element={<PaintingsPage setFavArt={setFavArt} favArt={favArt} setPageLoad={setPageLoad}/>}/>
       </Routes>
       </div>
-}
+{/* } */}
     </>
   )
 }
