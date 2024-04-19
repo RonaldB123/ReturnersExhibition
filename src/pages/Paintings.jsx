@@ -67,13 +67,13 @@ export function PaintingsPage({ setFavArt, favArt, setPageLoad }) {
                 })}
             </Carousel>
             <div className="p-5 bg-black/40 w-3/4 h-fit sm:w-1/2 sm:h-1/2 absolute top-0 right-0 left-0 mr-auto ml-auto translate-y-1/3 sm:translate-y-1/2">
-                <h1 className="text-center text-4xl text-white">Paintings!</h1>
+                <h1 className="text-center text-5xl text-white">Paintings!</h1>
                 <p className="text-center text-2xl text-white mt-10 sm:mt-5">Welcome to the paintings virtual exhibition!</p>
                 <p className="text-center text-2xl text-white mt-10 sm:mt-5">Browse to find your favourite artwork!</p>
                 <h1 className="text-5xl text-white text-center mt-10 sm:mt-5"><ArrowDownOutlined /></h1>
             </div>
             <div className="bg-black h-20">
-                <h1 className="text-center text-2xl sm:text-3xl text-white translate-y-3/4 sm:translate-y-1/2 :translate-y-1/2">Discover your favourite collection</h1>
+                <h1 className=" text-center text-2xl sm:text-3xl text-white translate-y-3/4 sm:translate-y-1/2 :translate-y-1/2">Discover your favourite collection</h1>
             </div>
 
             {/* Main Image and Image-Border */}
@@ -162,7 +162,7 @@ export function PaintingsPage({ setFavArt, favArt, setPageLoad }) {
                 </Drawer>
 
                 {/* Search bar  */}
-                <div className="max-w-xs ml-auto mr-auto bg-white">
+                <div className="mb-5 max-w-xs ml-auto mr-auto bg-white">
                     <SearchBar setKeySearch={setKeySearch} />
                 </div>
             </div>
