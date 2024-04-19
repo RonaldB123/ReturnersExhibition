@@ -1,7 +1,6 @@
 import { ArrowDownOutlined } from "@ant-design/icons";
 import { Card, Carousel, Col, Row } from "antd";
 import Meta from "antd/es/card/Meta";
-import { useState } from "react";
 import { Link } from "react-router-dom";
 
 
@@ -10,7 +9,7 @@ export function HomePage() {
         "https://cdn.britannica.com/51/194651-050-747F0C18/Interior-National-Gallery-of-Art-Washington-DC.jpg",
         "https://cdn.sanity.io/images/cctd4ker/production/441e3b2a3fcc15e770c29d1458351be3697da1ac-5304x5304.jpg?w=3840&q=75&fit=clip&auto=format",
         "https://sjmusart.org/sites/default/files/styles/wide/public/2022-05/JeanConner_SJMA_JArnoldImpart%20Photography_25_37.jpg?itok=gUAP8-op",
-    ]
+    ]   
 
     return (
         <>
@@ -20,7 +19,7 @@ export function HomePage() {
                 })}
 
             </Carousel>
-            <div className="p-5 bg-black/40 w-3/4 h-1/2 sm:w-1/2 sm:h-1/2 absolute top-0 right-0 left-0 mr-auto ml-auto translate-y-1/2">
+            <div className="p-5 bg-black/40 w-3/4 h-fit sm:w-1/2 sm:h-1/2 absolute top-0 right-0 left-0 mr-auto ml-auto translate-y-1/3 sm:translate-y-1/2">
                 <h1 className="text-center text-4xl text-white">Welcome</h1>
                 <p className="text-center text-2xl text-white mt-10 sm:mt-5">Welcome to the exhibition curator project!</p>
                 <p className="text-center text-2xl text-white mt-10 sm:mt-5">Browse to find your favourite artworks and sculptures!</p>

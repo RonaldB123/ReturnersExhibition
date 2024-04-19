@@ -1,11 +1,10 @@
-import { Route, Routes } from "react-router-dom"
+import { Route, Routes, useLocation } from "react-router-dom"
 import { HomePage } from "./pages/Home"
 import { useEffect, useState } from "react"
 import { Menu } from "./components/Menu";
 import { FavouritesPage } from "./pages/Favourites";
 import { SculpturesPage } from "./pages/Sculptures";
 import { PaintingsPage } from "./pages/Paintings";
-import { PageLoader } from "./components/PageLoader";
 
 function App() {
   const [favArt, setFavArt] = useState([]);
@@ -24,6 +23,11 @@ function App() {
   useEffect(()=> {
     localStorage.setItem('FavouritedArt', JSON.stringify(favArt));
   },[favArt])
+  
+  const {pathname} = useLocation();
+  useEffect(()=> {
+    window.scrollTo(0,0)
+  },[pathname])
 
   return (
     <>

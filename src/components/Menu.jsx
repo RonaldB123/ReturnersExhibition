@@ -12,7 +12,7 @@ export const Menu = ({ favArt, pageLoad }) => {
                     trigger="hover"
                     style={{
                         bottom: 5,
-                        left: 5
+                        left: 5,
                     }}
                     badge={{ count: favArt.length || 0 }}
                     icon={<MenuOutlined />}
