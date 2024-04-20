@@ -66,7 +66,7 @@ export function PaintingsPage({ setFavArt, favArt, setPageLoad }) {
                     return <img key={i} className="h-screen w-full bg-cover object-cover" src={bg}></img>
                 })}
             </Carousel>
-            <div className="p-5 bg-black/40 w-3/4 h-fit sm:w-1/2 sm:h-1/2 absolute top-0 right-0 left-0 mr-auto ml-auto translate-y-1/3 sm:translate-y-1/2">
+            <div className="p-5 bg-black/70 w-3/4 h-fit sm:w-1/2 sm:h-1/2 absolute top-0 right-0 left-0 mr-auto ml-auto translate-y-1/3 sm:translate-y-1/2">
                 <h1 className="text-center text-5xl text-white">Paintings!</h1>
                 <p className="text-center text-2xl text-white mt-10 sm:mt-5">Welcome to the paintings virtual exhibition!</p>
                 <p className="text-center text-2xl text-white mt-10 sm:mt-5">Browse to find your favourite artwork!</p>
