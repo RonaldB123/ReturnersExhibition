@@ -89,21 +89,25 @@ export const FavouritesPage = ({ setFavArt, favArt }) => {
                     setTab(!tab);
                     setCount(0);
                 }}
-                    className="w-fit flex mr-auto ml-auto mt-5 border border-black p-2 text-lg"
+                    className="w-fit flex mr-auto ml-auto mt-5 border border-black p-2 text-lg mb-10"
                 />
                 {tab ?
-                    <div className="image-border mr-auto ml-auto w-full max-w-2xl rounded-lg mt-10 text-center">
+                        <Tooltip title="Click image for a better view!" defaultOpen trigger="contextMenu">
+                            <div>
+                            <div className="image-border mr-auto ml-auto w-full max-w-2xl rounded-lg mt-16 text-center">
                         <Spin spinning={loading}>
                             {favArtwork.length ? <Image height={350} src={favArtwork[count] ? favArtwork[count].images.web.url : <Empty />} className="max-w-full object-contain flex mr-auto ml-auto"></Image> : <h1 style={{ height: 350 }} className="translate-y-1/2">No Artwork Favourited!</h1>}
                         </Spin>
                     </div>
+                    </div>
+                        </Tooltip>
                     : <>
                         <div className="mr-auto ml-auto w-fit left-0 right-0 text-center pt-10">
                             <Tooltip title="Click image for a better view!" defaultOpen trigger="contextMenu">
                                 <div>
                                     <Spin spinning={loading}>
                                         <img className="absolute" src="https://i.ibb.co/x3yR55p/file.png" style={{ width: 400, height: 400, marginTop: 305 }} draggable={false} />
-                                        {favSculpture.length > 0 && favSculpture.length !== 0 ? <Image width={350} height={350} src={favSculpture.length && favSculpture ? favSculpture[count].images[0].baseimageurl : <Empty />} className="border border-black rounded-lg absolute object-contain bg-white"></Image> : <div style={{ height: 350, width: 350 }} className="border border-black rounded-lg object-contain bg-white"><h1 className="mt-40">{favSculpture.length === 0 ? <h1 style={{ height: 350, width: 350 }} >No Sculptures Favourited!</h1> : ""}</h1></div>}
+                                        {favSculpture.length > 0 && favSculpture.length !== 0 ? <Image width={350} height={350} src={favSculpture.length && favSculpture ? favSculpture[count].images[0].baseimageurl : <Empty />} className="border border-black rounded-lg absolute object-contain bg-white"></Image> : <div style={{ height: 350, width: 350 }} className="border border-black rounded-lg object-contain bg-white"><h1 className="mt-40">{favSculpture.length === 0 ? <p style={{ height: 350, width: 350 }} >No Sculptures Favourited!</p> : ""}</h1></div>}
                                     </Spin>
                                 </div>
                             </Tooltip>
