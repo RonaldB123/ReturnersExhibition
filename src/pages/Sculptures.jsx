@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { getSculptureData, getSearchedSculptures } from "../utility/api";
-import { Button, Col, Divider, Drawer, Empty, Image, Row, Space, Spin } from "antd";
-import { InfoCircleOutlined, LeftCircleOutlined, RightCircleOutlined, RollbackOutlined, StarFilled, StarOutlined } from "@ant-design/icons";
+import { Button, Carousel, Col, Divider, Drawer, Empty, Image, Row, Space, Spin } from "antd";
+import { ArrowDownOutlined, InfoCircleOutlined, LeftCircleOutlined, RightCircleOutlined, RollbackOutlined, StarFilled, StarOutlined } from "@ant-design/icons";
 import { SearchBar } from "../components/SearchArt";
 
 
@@ -59,14 +59,35 @@ export const SculpturesPage = ({ favArt, setFavArt }) => {
         })
     }
 
+    const sculpturePics = [
+        "https://www.namuseum.gr/wp-content/uploads/2018/09/IMG_4416-1920x988.jpg",
+        "https://assets.simpleviewcms.com/simpleview/image/fetch/c_fill,h_1080,w_1920/f_jpg/q_65/https://media.newmindmedia.com/TellUs/image/%3Ffile%3DVigelandsmuseet-VO08493-_Foto_Fara_Mohri_59827850.JPG&dh%3D534&dw%3D800&cropX%3D0&cropY%3D165&cropH%3D2624&cropW%3D3934&t%3D4",
+        "https://cdn-imgix.headout.com/mircobrands-content/image/f552254b1b6790098f683174c3eada88-matteo-maretto-9KkPloRgOUY-unsplash.jpg?auto=format&q=90&crop=faces",
+    ]
+
     return (
         <>
-            <div className="m-2">
-                <h1 className="text-center mb-0">Welcome to the Sculptures Page!</h1>
-                <div className="mr-auto ml-auto w-fit left-0 right-0 text-center">
+        <Carousel autoplay autoplaySpeed={2000} >
+                {sculpturePics.map((bg, i) => {
+                    return <img key={i} className="h-screen w-full bg-cover object-cover" src={bg}></img>
+                })}
+            </Carousel>
+            <div className="p-5 bg-black/70 w-3/4 h-fit sm:w-1/2 sm:h-1/2 absolute top-0 right-0 left-0 mr-auto ml-auto translate-y-1/3 sm:translate-y-1/2">
+                <h1 className="text-center text-5xl text-white">Sculptures!</h1>
+                <p className="text-center text-2xl text-white mt-10 sm:mt-5">Welcome to the sculptures virtual exhibition!</p>
+                <p className="text-center text-2xl text-white mt-10 sm:mt-5">Browse to find your favourite sculptures!</p>
+                <h1 className="text-5xl text-white text-center mt-10 sm:mt-5"><ArrowDownOutlined /></h1>
+            </div>
+            <div className="bg-black h-20">
+                <h1 className=" text-center text-2xl sm:text-3xl text-white translate-y-3/4 sm:translate-y-1/2 :translate-y-1/2">Discover your favourite collection</h1>
+            </div>
+
+
+            <div className="w-full bg-cover overflow-clip pb-20" style={{backgroundImage: "url("+"https://i.ibb.co/yYXg8By/white-damask-wallpaper-with-floral-patterns-HMCFAN.jpg"+")"}}>
+                <div className="mr-auto ml-auto w-fit left-0 right-0 text-center pt-5">
                     <Spin spinning={loading}>
-                    <img className="mt-80 absolute" src="https://m.media-amazon.com/images/I/61B8KwWDMxL.jpg" style={{width:400, height:400}} draggable={false}/>
-                        <Image width={350} height={350} src={sculptures.length && sculptures ? sculptures[count].images[0].baseimageurl : <Empty />} className="border border-black rounded-lg absolute mt-4"></Image>
+                    <img className="absolute" src="https://i.ibb.co/x3yR55p/file.png" style={{width:400, height:400, marginTop: 305}} draggable={false}/>
+                        {sculptures.length > 0 && sculptures.length !== 0  ?<Image width={350} height={350} src={sculptures.length && sculptures ? sculptures[count].images[0].baseimageurl : <Empty />} className="border border-black rounded-lg absolute object-contain bg-white"></Image> : <div style={{height: 350, width: 350}} className="border border-black rounded-lg object-contain bg-white"><h1 className="mt-28">{sculptures.length === 0 && keySearch ? <Empty description={"No Sculptures Found!"} /> : ""}</h1></div> }
                     </Spin>
                 </div>
 
@@ -140,10 +161,10 @@ export const SculpturesPage = ({ favArt, setFavArt }) => {
             : <Empty/> }
         </Drawer>
                 {/* Search bar  */}
-                <div className="max-w-xs ml-auto mr-auto">
+                <div className="max-w-xs ml-auto mr-auto bg-white">
             <SearchBar setKeySearch={setKeySearch}/>
-        </div>
             </div>
+        </div>
         </>
     )
 }
