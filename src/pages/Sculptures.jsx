@@ -89,7 +89,7 @@ export const SculpturesPage = ({ favArt, setFavArt }) => {
                     <div>
                     <Spin spinning={loading}>
                     <img className="absolute" src="https://i.ibb.co/x3yR55p/file.png" style={{width:400, height:400, marginTop: 305}} draggable={false}/>
-                        {sculptures.length > 0 && sculptures.length !== 0  ?<Image width={350} height={350} src={sculptures.length && sculptures ? sculptures[count].images[0].baseimageurl : <Empty />} className="border border-black rounded-lg absolute object-contain bg-white"></Image> : <div style={{height: 350, width: 350}} className="border border-black rounded-lg object-contain bg-white"><h1 className="mt-28">{sculptures.length === 0 && keySearch ? <Empty description={"No Sculptures Found!"} /> : ""}</h1></div> }
+                        {sculptures.length > 0 && sculptures.length !== 0  ?<Image width={350} height={350} src={sculptures.length && sculptures[count].images ? sculptures[count].images[0].baseimageurl : <Empty />} className="border border-black rounded-lg absolute object-contain bg-white"></Image> : <div style={{height: 350, width: 350}} className="border border-black rounded-lg object-contain bg-white"><h1 className="mt-28">{sculptures.length === 0 && keySearch ? <Empty description={"No Sculptures Found!"} /> : ""}</h1></div> }
                     </Spin>
                     </div>
                 </Tooltip>
