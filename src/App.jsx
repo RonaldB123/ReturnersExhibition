@@ -8,7 +8,6 @@ import { PaintingsPage } from "./pages/Paintings";
 
 function App() {
   const [favArt, setFavArt] = useState([]);
-  const [pageLoad, setPageLoad] = useState(true);
 
   useEffect(()=> {
     if(JSON.parse(localStorage.getItem('FavouritedArt')) !== null){
@@ -31,17 +30,15 @@ function App() {
 
   return (
     <>
-    {/* {pageLoad ? <PageLoader setPageLoad={setPageLoad}/> : */}
     <div>
-    <Menu pageLoad={pageLoad} favArt={favArt}/>
+    <Menu favArt={favArt}/>
       <Routes>
         <Route path="/" element={<HomePage/>}/>
         <Route path="/favourites" element={<FavouritesPage setFavArt={setFavArt} favArt={favArt}/>}/>
         <Route path="/sculptures" element={<SculpturesPage favArt={favArt} setFavArt={setFavArt}/>}/>
-        <Route path="/paintings" element={<PaintingsPage setFavArt={setFavArt} favArt={favArt} setPageLoad={setPageLoad}/>}/>
+        <Route path="/paintings" element={<PaintingsPage setFavArt={setFavArt} favArt={favArt}/>}/>
       </Routes>
       </div>
-{/* } */}
     </>
   )
 }

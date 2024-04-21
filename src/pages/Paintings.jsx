@@ -5,7 +5,7 @@ import { Button, Carousel, Divider, Drawer, Empty, Image, Row, Space, Spin, Tool
 import { SearchBar } from "../components/SearchArt";
 
 
-export function PaintingsPage({ setFavArt, favArt, setPageLoad }) {
+export function PaintingsPage({ setFavArt, favArt }) {
     const [artworkData, setArtworkData] = useState([]);
     const [count, setCount] = useState(0);
     const [open, setOpen] = useState(false);
@@ -48,7 +48,6 @@ export function PaintingsPage({ setFavArt, favArt, setPageLoad }) {
                 setLoading(false);
                 setArtworkData(data);
                 setCount(0)
-                setPageLoad(false);
             }).catch((err) => console.log(err));
         } else {
             setLoading(true);

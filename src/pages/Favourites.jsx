@@ -76,15 +76,6 @@ export const FavouritesPage = ({ setFavArt, favArt }) => {
 
             {/* Main image and image border */}
             <div className="h-max w-full bg-contain overflow-hidden pb-20" style={{ backgroundImage: "url(" + "https://i.ibb.co/yYXg8By/white-damask-wallpaper-with-floral-patterns-HMCFAN.jpg" + ")" }}>
-                {/* <Tabs
-                    className="w-fit mr-auto ml-auto"
-                    defaultActiveKey="2"
-                    items={[{ key: 1, label: "Artwork", icon: <PictureFilled className="text-white" /> }, { key: 2, label: "Sculpture", icon: <TrophyFilled className="text-white" /> }]}
-                    onChange={() => {
-                        setTab(!tab);
-                        setCount(0);
-                    }}
-                /> */}
                 <Segmented options={[{ label: "Artwork", value: 1, icon: <PictureFilled /> }, { label: "Sculpture", value: 2, icon: <TrophyFilled /> }]} onChange={() => {
                     setTab(!tab);
                     setCount(0);

@@ -4,10 +4,9 @@ import { Link } from "react-router-dom"
 
 
 
-export const Menu = ({ favArt, pageLoad }) => {
+export const Menu = ({ favArt }) => {
     return (
         <>
-            {/* {pageLoad ? "" : */}
                 <FloatButton.Group
                     trigger="hover"
                     style={{
@@ -22,7 +21,6 @@ export const Menu = ({ favArt, pageLoad }) => {
                     <FloatButton icon={<Link to={"/favourites"}><StarFilled /></Link>} badge={{ count: favArt.length }} tooltip={"Favourites"} />
                     <FloatButton icon={<Link to={"/"}><HomeFilled /></Link>} tooltip={"Home"} />
                 </FloatButton.Group>
-            {/* } */}
         </>
     )
 }
