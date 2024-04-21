@@ -1,5 +1,5 @@
 import { ArrowDownOutlined } from "@ant-design/icons";
-import { Card, Carousel, Col, Row } from "antd";
+import { Card, Carousel, Col, ConfigProvider, Row } from "antd";
 import Meta from "antd/es/card/Meta";
 import { Link } from "react-router-dom";
 
@@ -39,7 +39,8 @@ export function HomePage() {
                                     <span className="text">Discover Artworks</span>
                                     <span className="arrow"></span>
                                 </button></Link>]}>
-                            <Meta title="Artwork!" description="Find a range of different artwork pieces" />
+                                <h1 className="text-4xl mb-4">Artwork</h1>
+                            <Meta className="text-xl" description="Find a range of different artwork pieces" />
                         </Card>
                     </Col>
                     <Col span={24} md={12} className="mb-5">
@@ -50,12 +51,12 @@ export function HomePage() {
                                     <span className="text">Discover Sculptures</span>
                                     <span className="arrow"></span>
                                 </button></Link>]}>
-                            <Meta title="Sculptures!" description="Find a range of different sculptures" />
+                                    <h1 className="text-4xl mb-4">Sculptures</h1>
+                            <Meta className="text-xl" description="Find a range of different sculptures" />
                         </Card>
                     </Col>
                 </Row>
             </div>
-
         </>
     )
 }
