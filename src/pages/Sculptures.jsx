@@ -158,7 +158,7 @@ export const SculpturesPage = ({ favArt, setFavArt }) => {
             <p className="mb-1">{sculptures[count].culture}</p> 
             <p>{sculptures[count].medium}</p>
             <Divider>Description</Divider>
-            <p className="indent-1 first-letter:text-6xl first-letter:font-bold first-letter:me-2 first-letter:float-start">{sculptures[count].description !== null ? sculptures[count].description : "No description found"}</p>
+            {sculptures[count].description !== null ? <p className="indent-1 first-letter:text-6xl first-letter:font-bold first-letter:me-2 first-letter:float-start">{sculptures[count].description}</p> : <p>No Description Found</p>}
             <Divider>Current Location</Divider>
             <p>{sculptures[count].provenance ? sculptures[count].provenance : "No Location Found." }</p>
             </> 
