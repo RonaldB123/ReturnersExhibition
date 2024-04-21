@@ -118,7 +118,7 @@ export const SculpturesPage = ({ favArt, setFavArt }) => {
                                 }
                             }
                         }}> </Button>
-                        <Button icon={<InfoCircleOutlined className="text-xl" />} onClick={showDrawer} className="ml-5 mr-5 bg-white"></Button>
+                        <Button loading={loading} icon={<InfoCircleOutlined className="text-xl" />} onClick={showDrawer} className="ml-5 mr-5 bg-white"></Button>
                         <Button icon={<RightCircleOutlined className="text-2xl" />} className="bg-white" onClick={() => {
                             incrementCount(1);
                             if (sculptures[count + 1]) {
@@ -132,11 +132,11 @@ export const SculpturesPage = ({ favArt, setFavArt }) => {
                     </Row>
                     <Row span={4}>
                         {fav || (sculptures.length && favArt.some(obj=> sculptures[count].id === obj.id))
-                            ? <Button className="bg-white" onClick={() => {
+                            ? <Button loading={loading} className="bg-white" onClick={() => {
                                 setFav(false);
                                 removeFromFav(sculptures[count].id);
                             }} icon={<StarFilled className="text-xl" />}></Button>
-                            : <Button className="bg-white" onClick={() => {
+                            : <Button loading={loading} className="bg-white" onClick={() => {
                                 setFav(true);
                                 addToFav(sculptures[count]);
                             }} icon={<StarOutlined className="text-xl" />}></Button>

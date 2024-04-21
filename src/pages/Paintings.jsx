@@ -110,7 +110,7 @@ export function PaintingsPage({ setFavArt, favArt }) {
                                 }
                             }
                         }}> </Button>
-                        <Button icon={<InfoCircleOutlined className="text-xl" />} onClick={showDrawer} className="ml-5 mr-5 bg-white"></Button>
+                        <Button loading={loading} icon={<InfoCircleOutlined className="text-xl" />} onClick={showDrawer} className="ml-5 mr-5 bg-white"></Button>
                         <Button className="bg-white" icon={<RightCircleOutlined className="text-2xl" />} onClick={() => {
                             incrementCount(1);
                             if (artworkData[count + 1]) {
@@ -124,12 +124,12 @@ export function PaintingsPage({ setFavArt, favArt }) {
                     </Row>
                     <Row span={4}>
                         {fav || (artworkData.length && favArt.some(obj => artworkData[count].id === obj.id))
-                            ? <Button className="bg-white" onClick={() => {
+                            ? <Button loading={loading} className="bg-white" onClick={() => {
                                 setFav(false);
                                 removeFromFav(artworkData[count].id);
                             }} icon={<StarFilled className="text-xl" />}></Button>
                             :
-                            <Button className="bg-white" onClick={() => {
+                            <Button loading={loading} className="bg-white" onClick={() => {
                                 setFav(true);
                                 addToFav(artworkData[count]);
                             }} icon={<StarOutlined className="text-xl" />}></Button>
