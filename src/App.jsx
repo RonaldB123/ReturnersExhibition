@@ -30,15 +30,13 @@ function App() {
 
   return (
     <>
-    <div>
     <Menu favArt={favArt}/>
       <Routes>
         <Route path="/" element={<HomePage/>}/>
         <Route path="/favourites" element={<FavouritesPage setFavArt={setFavArt} favArt={favArt}/>}/>
         <Route path="/sculptures" element={<SculpturesPage favArt={favArt} setFavArt={setFavArt}/>}/>
         <Route path="/paintings" element={<PaintingsPage setFavArt={setFavArt} favArt={favArt}/>}/>
-      </Routes>
-      </div>
+      </Routes>    
     </>
   )
 }
