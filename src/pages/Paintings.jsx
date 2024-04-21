@@ -154,7 +154,7 @@ export function PaintingsPage({ setFavArt, favArt }) {
                         <Divider>Description</Divider>
                         <p className="indent-1 first-letter:text-6xl first-letter:font-bold first-letter:me-2 first-letter:float-start">{artworkData[count].description}</p>
                         <Divider>Current Location</Divider>
-                        <p>{artworkData[count].current_location}</p>
+                        <p>{artworkData[count].current_location}, Cleveland Museum of Art</p>
                         <Divider>Did you know ?</Divider>
                         <p>{artworkData[count].did_you_know}</p>
                     </>
@@ -171,16 +171,16 @@ export function PaintingsPage({ setFavArt, favArt }) {
                     <div className="border-t w-full divide-x-2 divide-solid divide-white"></div>
                     <div className="text-white flex justify-center text-xl mt-3">
                         <Link to="/">
-                            <h1 className="sm:mr-5 mr-3">Home</h1>
+                            <h1 className="sm:mr-5 mr-3 hover:underline">Home</h1>
                         </Link>
                         <Link to="/favourites">
-                            <h1 className="sm:mr-5 mr-3">Favourites</h1>
+                            <h1 className="sm:mr-5 mr-3 hover:underline">Favourites</h1>
                         </Link>
                         <Link to="/sculptures">
-                            <h1 className="sm:mr-5 mr-3">Sculptures</h1>
+                            <h1 className="sm:mr-5 mr-3 hover:underline">Sculptures</h1>
                         </Link>
                         <Link to="/paintings">
-                            <h1>Artwork</h1>
+                            <h1 className="hover:underline">Artwork</h1>
                         </Link>
                     </div>
                     <div className="border-t w-full divide-x-2 divide-solid divide-white mt-3"></div>

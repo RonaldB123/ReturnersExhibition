@@ -175,16 +175,16 @@ export const SculpturesPage = ({ favArt, setFavArt }) => {
                     <div className="border-t w-full divide-x-2 divide-solid divide-white"></div>
                     <div className="text-white flex justify-center text-xl mt-3">
                         <Link to="/">
-                            <h1 className="sm:mr-5 mr-3">Home</h1>
+                            <h1 className="sm:mr-5 mr-3 hover:underline">Home</h1>
                         </Link>
                         <Link to="/favourites">
-                            <h1 className="sm:mr-5 mr-3">Favourites</h1>
+                            <h1 className="sm:mr-5 mr-3 hover:underline">Favourites</h1>
                         </Link>
                         <Link to="/sculptures">
-                            <h1 className="sm:mr-5 mr-3">Sculptures</h1>
+                            <h1 className="sm:mr-5 mr-3 hover:underline">Sculptures</h1>
                         </Link>
                         <Link to="/paintings">
-                            <h1>Artwork</h1>
+                            <h1 className="hover:underline">Artwork</h1>
                         </Link>
                     </div>
                     <div className="border-t w-full divide-x-2 divide-solid divide-white mt-3"></div>

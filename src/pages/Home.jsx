@@ -28,12 +28,12 @@ export function HomePage() {
             <div className="bg-black h-56 w-full max-w-full overflow-hidden">
                 <div className="flex justify-between">
                     <h1 className="text-5xl text-white pt-20 sm:ml-20 sm:mr-20 ml-5 mr-5 underline">Explore</h1>
-                    <img className="h-56 w-full object-cover hover:shadow-xl hover:shadow-white hover:border-white hover:border-2 border-2 border-black" src="https://previews.123rf.com/images/vectora/vectora1910/vectora191000179/130829537-grayscale-greyscale-abstract-art-with-deformation-distortion-effect-on-random-lines-random-chaotic.jpg" />
+                    <img className="h-56 w-full object-cover hover:shadow-xl hover:shadow-white hover:border-white hover:border-2 border-2 border-black" src="https://images.squarespace-cdn.com/content/v1/58194a68f5e231eb16096f46/1555903872785-XJ734L0ISA15RPKSNN4O/The+lotus+pond_sml.jpg" />
                 </div>
             </div>
             <div className="bg-black h-56 w-full max-w-full">
                 <div className="flex justify-between">
-                    <img className="h-56 w-full object-cover overflow-hidden hover:shadow-xl hover:shadow-white hover:border-white hover:border-2" src="https://pics.craiyon.com/2023-08-26/453e72df4f9b4949b83af9cb8f0f3d1a.webp" />
+                    <img className="h-56 w-full object-cover overflow-hidden hover:shadow-xl hover:shadow-white hover:border-white hover:border-2" src="https://live.staticflickr.com/3109/5864227157_791db8156c_b.jpg" />
                     <h1 className="text-5xl text-white pt-20 sm:ml-20 sm:mr-20 ml-3 mr-3 underline border-b-2 border-t-2 border-black">Immerse</h1>
                 </div>
             </div>
@@ -79,16 +79,16 @@ export function HomePage() {
                     <div className="border-t w-full divide-x-2 divide-solid divide-white"></div>
                     <div className="text-white flex justify-center text-xl mt-3">
                         <Link to="/">
-                            <h1 className="sm:mr-5 mr-3">Home</h1>
+                            <h1 className="sm:mr-5 mr-3 hover:underline">Home</h1>
                         </Link>
                         <Link to="/favourites">
-                            <h1 className="sm:mr-5 mr-3">Favourites</h1>
+                            <h1 className="sm:mr-5 mr-3 hover:underline">Favourites</h1>
                         </Link>
                         <Link to="/sculptures">
-                            <h1 className="sm:mr-5 mr-3">Sculptures</h1>
+                            <h1 className="sm:mr-5 mr-3 hover:underline">Sculptures</h1>
                         </Link>
                         <Link to="/paintings">
-                            <h1>Artwork</h1>
+                            <h1 className="hover:underline">Artwork</h1>
                         </Link>
                     </div>
                     <div className="border-t w-full divide-x-2 divide-solid divide-white mt-3"></div>
