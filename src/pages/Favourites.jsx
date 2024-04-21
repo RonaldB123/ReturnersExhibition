@@ -107,7 +107,7 @@ export const FavouritesPage = ({ setFavArt, favArt }) => {
                                 <div>
                                     <Spin spinning={loading}>
                                         <img className="absolute" src="https://i.ibb.co/x3yR55p/file.png" style={{ width: 400, height: 400, marginTop: 305 }} draggable={false} />
-                                        {favSculpture.length > 0 && favSculpture.length !== 0 ? <Image width={350} height={350} src={favSculpture.length && favSculpture ? favSculpture[count].images[0].baseimageurl : <Empty />} className="border border-black rounded-lg absolute object-contain bg-white"></Image> : <div style={{ height: 350, width: 350 }} className="border border-black rounded-lg object-contain bg-white"><h1 className="mt-40">{favSculpture.length === 0 ? <p style={{ height: 350, width: 350 }} >No Sculptures Favourited!</p> : ""}</h1></div>}
+                                        {favSculpture.length ? <Image width={350} height={350} src={favSculpture[count] ? favSculpture[count].images[0].baseimageurl : <Empty />} className="border border-black rounded-lg absolute object-contain bg-white"></Image> : <div style={{ height: 350, width: 350 }} className="border border-black rounded-lg object-contain bg-white"><h1 className="mt-40">{favSculpture.length === 0 ? <p style={{ height: 350, width: 350 }} >No Sculptures Favourited!</p> : ""}</h1></div>}
                                     </Spin>
                                 </div>
                             </Tooltip>
