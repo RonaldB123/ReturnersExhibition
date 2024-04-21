@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { getArtworks, getSearchedArtworks } from "../utility/api"
 import { ArrowDownOutlined, FacebookOutlined, InfoCircleOutlined, InstagramOutlined, LeftCircleOutlined, RightCircleOutlined, RollbackOutlined, StarFilled, StarOutlined, TwitterOutlined } from "@ant-design/icons"
 import { Button, Carousel, Divider, Drawer, Empty, Image, Row, Space, Spin, Tooltip } from "antd";
@@ -59,6 +59,8 @@ export function PaintingsPage({ setFavArt, favArt }) {
         }
     }, [keySearch])
 
+    const mainRef = useRef();
+
     return (
         <>
             <Carousel autoplay autoplaySpeed={2000} >
@@ -67,12 +69,13 @@ export function PaintingsPage({ setFavArt, favArt }) {
                 })}
             </Carousel>
             <div className="p-5 bg-black/70 w-3/4 h-fit sm:w-1/2 sm:h-1/2 absolute top-0 right-0 left-0 mr-auto ml-auto translate-y-1/3 sm:translate-y-1/2">
-                <h1 className="text-center text-5xl text-white">Paintings!</h1>
+                <h1 className="text-center text-6xl underline text-white">Paintings!</h1>
                 <p className="text-center text-2xl text-white mt-10 sm:mt-5">Welcome to the paintings virtual exhibition!</p>
                 <p className="text-center text-2xl text-white mt-10 sm:mt-5">Browse to find your favourite artwork!</p>
-                <h1 className="text-5xl text-white text-center mt-10 sm:mt-5"><ArrowDownOutlined /></h1>
-            </div>
-            <div className="bg-black h-20">
+                <Button shape="circle" className="flex mr-auto ml-auto justify-center mt-5 border border-white hover:border-2" type="text" icon={<ArrowDownOutlined className="text-white mt-0.5"/>} onClick={()=>{
+                     mainRef.current.scrollIntoView({behavior: "smooth"})
+                }}></Button>            </div>
+            <div className="bg-black h-20" ref={mainRef}>
                 <h1 className=" text-center text-2xl sm:text-3xl text-white translate-y-3/4 sm:translate-y-1/2 :translate-y-1/2">Discover your favourite collection</h1>
             </div>
 

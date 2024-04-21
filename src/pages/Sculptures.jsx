@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { getSculptureData, getSearchedSculptures } from "../utility/api";
 import { Button, Carousel, Divider, Drawer, Empty, Image, Row, Space, Spin, Tooltip } from "antd";
 import { ArrowDownOutlined, FacebookOutlined, InfoCircleOutlined, InstagramOutlined, LeftCircleOutlined, RightCircleOutlined, RollbackOutlined, StarFilled, StarOutlined, TwitterOutlined } from "@ant-design/icons";
@@ -66,6 +66,8 @@ export const SculpturesPage = ({ favArt, setFavArt }) => {
         "https://cdn-imgix.headout.com/mircobrands-content/image/f552254b1b6790098f683174c3eada88-matteo-maretto-9KkPloRgOUY-unsplash.jpg?auto=format&q=90&crop=faces",
     ]
 
+    const mainRef = useRef();
+
     return (
         <>
         <Carousel autoplay autoplaySpeed={2000} >
@@ -77,9 +79,10 @@ export const SculpturesPage = ({ favArt, setFavArt }) => {
                 <h1 className="text-center text-5xl text-white">Sculptures!</h1>
                 <p className="text-center text-2xl text-white mt-10 sm:mt-5">Welcome to the sculptures virtual exhibition!</p>
                 <p className="text-center text-2xl text-white mt-10 sm:mt-5">Browse to find your favourite sculptures!</p>
-                <h1 className="text-5xl text-white text-center mt-10 sm:mt-5"><ArrowDownOutlined /></h1>
-            </div>
-            <div className="bg-black h-20">
+                <Button shape="circle" className="flex mr-auto ml-auto justify-center mt-5 border border-white hover:border-2" type="text" icon={<ArrowDownOutlined className="text-white mt-0.5"/>} onClick={()=>{
+                     mainRef.current.scrollIntoView({behavior: "smooth"})
+                }}></Button>            </div>
+            <div className="bg-black h-20" ref={mainRef}>
                 <h1 className=" text-center text-2xl sm:text-3xl text-white translate-y-3/4 sm:translate-y-1/2 :translate-y-1/2">Discover your favourite collection</h1>
             </div>
 
@@ -90,7 +93,7 @@ export const SculpturesPage = ({ favArt, setFavArt }) => {
                     <div>
                     <Spin spinning={loading}>
                     <img className="absolute" src="https://i.ibb.co/x3yR55p/file.png" style={{width:400, height:400, marginTop: 305}} draggable={false}/>
-                        {sculptures.length > 0 && sculptures.length !== 0  ?<Image width={350} height={350} src={sculptures.length && sculptures[count].images ? sculptures[count].images[0].baseimageurl : <Empty />} className="border border-black rounded-lg absolute object-contain bg-white"></Image> : <div style={{height: 350, width: 350}} className="border border-black rounded-lg object-contain bg-white"><h1 className="mt-28">{sculptures.length === 0 && keySearch ? <Empty description={"No Sculptures Found!"} /> : ""}</h1></div> }
+                        {sculptures.length > 0 && sculptures.length !== 0  ?<Image width={350} height={350} src={sculptures.length && sculptures[count].images ? sculptures[count].images[0].baseimageurl : <Empty />} className="border-4 border-black rounded-lg absolute object-contain bg-white border-double"></Image> : <div style={{height: 350, width: 350}} className="border border-black rounded-lg object-contain bg-white"><h1 className="mt-28">{sculptures.length === 0 && keySearch ? <Empty description={"No Sculptures Found!"} /> : ""}</h1></div> }
                     </Spin>
                     </div>
                 </Tooltip>

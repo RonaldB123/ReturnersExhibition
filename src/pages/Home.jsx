@@ -1,6 +1,7 @@
-import { ArrowDownOutlined, FacebookOutlined, InstagramOutlined, TwitterOutlined } from "@ant-design/icons";
-import { Card, Carousel, Col, ConfigProvider, Divider, Row } from "antd";
+import { ArrowDownOutlined, BorderBottomOutlined, FacebookOutlined, InstagramOutlined, TwitterOutlined } from "@ant-design/icons";
+import { Button, Card, Carousel, Col, ConfigProvider, Divider, Row } from "antd";
 import Meta from "antd/es/card/Meta";
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 
 
@@ -11,6 +12,8 @@ export function HomePage() {
         "https://sjmusart.org/sites/default/files/styles/wide/public/2022-05/JeanConner_SJMA_JArnoldImpart%20Photography_25_37.jpg?itok=gUAP8-op",
     ]
 
+    const mainRef = useRef();
+
     return (
         <>
             <Carousel autoplay autoplaySpeed={2000}>
@@ -20,10 +23,12 @@ export function HomePage() {
 
             </Carousel>
             <div className="p-5 bg-black/70 w-3/4 h-fit sm:w-1/2 sm:h-1/2 absolute top-0 right-0 left-0 mr-auto ml-auto translate-y-1/3 sm:translate-y-1/2">
-                <h1 className="text-center text-5xl text-white">Welcome</h1>
+                <h1 className="text-center text-6xl underline text-white">Welcome</h1>
                 <p className="text-center text-2xl text-white mt-10 sm:mt-5">Welcome to the exhibition curator project!</p>
                 <p className="text-center text-2xl text-white mt-10 sm:mt-5">Browse to find your favourite artworks and sculptures!</p>
-                <h1 className="text-5xl text-white text-center mt-10 sm:mt-5"><ArrowDownOutlined /></h1>
+                <Button shape="circle" className="flex mr-auto ml-auto justify-center mt-5 border border-white hover:border-2" type="text" icon={<ArrowDownOutlined className="text-white mt-0.5"/>} onClick={()=>{
+                     mainRef.current.scrollIntoView({behavior: "smooth"})
+                }}></Button>
             </div>
             <div className="bg-black h-56 w-full max-w-full overflow-hidden">
                 <div className="flex justify-between">
@@ -43,7 +48,7 @@ export function HomePage() {
                     <img className="h-56 w-full object-cover hover:shadow-xl hover:shadow-white hover:border-white hover:border-2 border-2 border-black" src="https://images.squarespace-cdn.com/content/v1/5fca7df73e95df765ab2e5d6/1616068491507-TPV9LVH79KUZYM6YGN9G/Concepticide.jpg" />
                 </div>
             </div>
-            <div className="bg-black h-20 mt-4 mb-2">
+            <div ref={mainRef} className="bg-black h-20 mt-4 mb-2">
                 <h1 className="text-center text-3xl text-white translate-y-1/2">Discover your collection</h1>
             </div>
             <div>
