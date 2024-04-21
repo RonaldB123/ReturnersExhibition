@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
 import { getSculptureData, getSearchedSculptures } from "../utility/api";
 import { Button, Carousel, Divider, Drawer, Empty, Image, Row, Space, Spin, Tooltip } from "antd";
-import { ArrowDownOutlined, InfoCircleOutlined, LeftCircleOutlined, RightCircleOutlined, RollbackOutlined, StarFilled, StarOutlined } from "@ant-design/icons";
+import { ArrowDownOutlined, FacebookOutlined, InfoCircleOutlined, InstagramOutlined, LeftCircleOutlined, RightCircleOutlined, RollbackOutlined, StarFilled, StarOutlined, TwitterOutlined } from "@ant-design/icons";
 import { SearchBar } from "../components/SearchArt";
+import { Link } from "react-router-dom";
 
 
 
@@ -169,6 +170,31 @@ export const SculpturesPage = ({ favArt, setFavArt }) => {
             <SearchBar setKeySearch={setKeySearch}/>
             </div>
         </div>
+        <div className="h-45 w-full bg-black">
+                    <div className="h-5"></div>
+                    <div className="border-t w-full divide-x-2 divide-solid divide-white"></div>
+                    <div className="text-white flex justify-center text-xl mt-3">
+                        <Link to="/">
+                            <h1 className="sm:mr-5 mr-3">Home</h1>
+                        </Link>
+                        <Link to="/favourites">
+                            <h1 className="sm:mr-5 mr-3">Favourites</h1>
+                        </Link>
+                        <Link to="/sculptures">
+                            <h1 className="sm:mr-5 mr-3">Sculptures</h1>
+                        </Link>
+                        <Link to="/paintings">
+                            <h1>Artwork</h1>
+                        </Link>
+                    </div>
+                    <div className="border-t w-full divide-x-2 divide-solid divide-white mt-3"></div>
+                    <div className="flex justify-center text-white text-4xl mt-5">
+                    <InstagramOutlined className="mr-3" />
+                    <FacebookOutlined className="mr-3" />
+                    <TwitterOutlined className="mr-3" />
+                    </div>
+                    <p className="text-white mt-5">Privacy Policy | Terms of Use | Copyright © 2024 Exhibition Curator Project</p>
+                </div>
         </>
     )
 }

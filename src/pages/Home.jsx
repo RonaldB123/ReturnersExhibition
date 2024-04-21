@@ -1,5 +1,5 @@
-import { ArrowDownOutlined } from "@ant-design/icons";
-import { Card, Carousel, Col, ConfigProvider, Row } from "antd";
+import { ArrowDownOutlined, FacebookOutlined, InstagramOutlined, TwitterOutlined } from "@ant-design/icons";
+import { Card, Carousel, Col, ConfigProvider, Divider, Row } from "antd";
 import Meta from "antd/es/card/Meta";
 import { Link } from "react-router-dom";
 
@@ -9,7 +9,7 @@ export function HomePage() {
         "https://cdn.britannica.com/51/194651-050-747F0C18/Interior-National-Gallery-of-Art-Washington-DC.jpg",
         "https://cdn.sanity.io/images/cctd4ker/production/441e3b2a3fcc15e770c29d1458351be3697da1ac-5304x5304.jpg?w=3840&q=75&fit=clip&auto=format",
         "https://sjmusart.org/sites/default/files/styles/wide/public/2022-05/JeanConner_SJMA_JArnoldImpart%20Photography_25_37.jpg?itok=gUAP8-op",
-    ]   
+    ]
 
     return (
         <>
@@ -25,22 +25,22 @@ export function HomePage() {
                 <p className="text-center text-2xl text-white mt-10 sm:mt-5">Browse to find your favourite artworks and sculptures!</p>
                 <h1 className="text-5xl text-white text-center mt-10 sm:mt-5"><ArrowDownOutlined /></h1>
             </div>
-            <div className="bg-black h-56 w-full max-w-full overflow-hidden sm:border-b-2 sm:border-t-4 sm:border-black">
+            <div className="bg-black h-56 w-full max-w-full overflow-hidden">
                 <div className="flex justify-between">
                     <h1 className="text-5xl text-white pt-20 sm:ml-20 sm:mr-20 ml-5 mr-5 underline">Explore</h1>
-                    <img className="h-56 w-full object-cover" src="https://static.vecteezy.com/system/resources/previews/014/536/660/non_2x/blue-colourful-shape-background-abstract-eps-vector.jpg"/>
+                    <img className="h-56 w-full object-cover hover:shadow-xl hover:shadow-white hover:border-white hover:border-2 border-2 border-black" src="https://previews.123rf.com/images/vectora/vectora1910/vectora191000179/130829537-grayscale-greyscale-abstract-art-with-deformation-distortion-effect-on-random-lines-random-chaotic.jpg" />
                 </div>
             </div>
             <div className="bg-black h-56 w-full max-w-full">
                 <div className="flex justify-between">
-                    <img className="h-56 w-full object-cover overflow-hidden sm:border-b-2 sm:border-t-2 sm:border-black" src="https://www.singulart.com/images/artworks/v2/cropped/5097/main/zoom/1840265_2ee2f890a82f45072575e3f4a30d095d.jpeg"/>
+                    <img className="h-56 w-full object-cover overflow-hidden hover:shadow-xl hover:shadow-white hover:border-white hover:border-2" src="https://pics.craiyon.com/2023-08-26/453e72df4f9b4949b83af9cb8f0f3d1a.webp" />
                     <h1 className="text-5xl text-white pt-20 sm:ml-20 sm:mr-20 ml-3 mr-3 underline border-b-2 border-t-2 border-black">Immerse</h1>
                 </div>
             </div>
-            <div className="bg-black h-56 w-full max-w-full overflow-hidden sm:border-b-4 sm:border-t-2 sm:border-black">
+            <div className="bg-black h-56 w-full max-w-full overflow-hidden">
                 <div className="flex justify-between">
-                    <h1 className="text-5xl text-white pt-20 sm:ml-20 sm:mr-20 ml-5 mr-5 underline">Uncover</h1>
-                    <img className="h-56 w-full object-cover" src="https://images.squarespace-cdn.com/content/v1/5fca7df73e95df765ab2e5d6/1616068491507-TPV9LVH79KUZYM6YGN9G/Concepticide.jpg"/>
+                    <h1 className="text-5xl text-white pt-20 sm:ml-20 sm:mr-20 ml-3 mr-3 underline">Uncover</h1>
+                    <img className="h-56 w-full object-cover hover:shadow-xl hover:shadow-white hover:border-white hover:border-2 border-2 border-black" src="https://images.squarespace-cdn.com/content/v1/5fca7df73e95df765ab2e5d6/1616068491507-TPV9LVH79KUZYM6YGN9G/Concepticide.jpg" />
                 </div>
             </div>
             <div className="bg-black h-20 mt-4 mb-2">
@@ -54,10 +54,10 @@ export function HomePage() {
                             />}
                             actions={[<Link to="/paintings">
                                 <button className="button h-10 mr-auto ml-auto">
-                                    <span className="text">Discover Artworks</span>
+                                    <span className="text text-xs sm:text-sm">Discover Artworks</span>
                                     <span className="arrow"></span>
                                 </button></Link>]}>
-                                <h1 className="text-4xl mb-4">Artwork</h1>
+                            <h1 className="text-4xl mb-4">Artwork</h1>
                             <Meta className="text-xl" description="Find a range of different artworks" />
                         </Card>
                     </Col>
@@ -66,14 +66,39 @@ export function HomePage() {
                             cover={<img className="h-64 object-cover" src="https://www.smb.museum/uploads/tx_smb/exhibitions/exhibition_17496/Canova_Raum_5_1920_xl.jpg" />}
                             actions={[<Link to="/sculptures">
                                 <button className="button h-10 mr-auto ml-auto">
-                                    <span className="text">Discover Sculptures</span>
+                                    <span className="text text-xs sm:text-sm">Discover Sculptures</span>
                                     <span className="arrow"></span>
                                 </button></Link>]}>
-                                    <h1 className="text-4xl mb-4">Sculptures</h1>
+                            <h1 className="text-4xl mb-4">Sculptures</h1>
                             <Meta className="text-xl" description="Find a range of different sculptures" />
                         </Card>
                     </Col>
                 </Row>
+                <div className="h-45 w-full bg-black mt-16">
+                    <div className="h-5"></div>
+                    <div className="border-t w-full divide-x-2 divide-solid divide-white"></div>
+                    <div className="text-white flex justify-center text-xl mt-3">
+                        <Link to="/">
+                            <h1 className="sm:mr-5 mr-3">Home</h1>
+                        </Link>
+                        <Link to="/favourites">
+                            <h1 className="sm:mr-5 mr-3">Favourites</h1>
+                        </Link>
+                        <Link to="/sculptures">
+                            <h1 className="sm:mr-5 mr-3">Sculptures</h1>
+                        </Link>
+                        <Link to="/paintings">
+                            <h1>Artwork</h1>
+                        </Link>
+                    </div>
+                    <div className="border-t w-full divide-x-2 divide-solid divide-white mt-3"></div>
+                    <div className="flex justify-center text-white text-4xl mt-5">
+                    <InstagramOutlined className="mr-3" />
+                    <FacebookOutlined className="mr-3" />
+                    <TwitterOutlined className="mr-3" />
+                    </div>
+                    <p className="text-white mt-5">Privacy Policy | Terms of Use | Copyright © 2024 Exhibition Curator Project</p>
+                </div>
             </div>
         </>
     )
