@@ -33,7 +33,7 @@ Paste inside the `.env` file:
 VITE_REACT_APP_API_KEY= ENTER_API_KEY_HERE
 ```
 
-Request your Harvard API Key [Link](https://docs.google.com/forms/d/1Fe1H4nOhFkrLpaeBpLAnSrIMYvcAxnYWm0IU9a6IkFA/viewform).
+Request your [Harvard API Key](https://docs.google.com/forms/d/1Fe1H4nOhFkrLpaeBpLAnSrIMYvcAxnYWm0IU9a6IkFA/viewform).
 
 Replace *ENTER_API_KEY_HERE* with your API Key.
 
