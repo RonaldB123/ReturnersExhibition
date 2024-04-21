@@ -1,8 +1,49 @@
-# React + Vite
+# Exhibition Curator Project
+## Description
+This project gives users access to different types of art and allows them to discover, view, and favourite art and view their own art collection. 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Getting Started
 
-Currently, two official plugins are available:
+### Clone Repository
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Paste into terminal
+
+```
+git clone https://github.com/RonaldB123/ReturnersExhibition.git
+```
+
+### Install Dependencies
+
+Paste into terminal
+
+```
+npm i
+```
+
+### Environment Variables
+
+We need to create environment variables
+for the [Harvard API](https://harvardartmuseums.org/collections/api) Key.
+
+Create a file called `.env` in the base root of the 
+repository.
+
+Paste inside the `.env` file:
+```
+VITE_REACT_APP_API_KEY= ENTER_API_KEY_HERE
+```
+
+Request your Harvard API Key [Link](https://docs.google.com/forms/d/1Fe1H4nOhFkrLpaeBpLAnSrIMYvcAxnYWm0IU9a6IkFA/viewform).
+
+Replace *ENTER_API_KEY_HERE* with your API Key.
+
+### Executing Program
+
+Paste in terminal 
+
+```
+npm run dev
+```
+
+After executing, click the `https://localhost:` link provided in the terminal to view the website.
+
