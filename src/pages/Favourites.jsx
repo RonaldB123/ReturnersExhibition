@@ -72,6 +72,7 @@ export const FavouritesPage = ({ setFavArt, favArt }) => {
 
     return (
         <>
+            {/* Hero Page and Background Images */}
             <Carousel autoplay autoplaySpeed={2000} >
                 {favouritesPics.map((bg, i) => {
                     return <img key={i} className="h-screen w-full bg-cover object-cover" src={bg}></img>
@@ -85,13 +86,13 @@ export const FavouritesPage = ({ setFavArt, favArt }) => {
                      mainRef.current.scrollIntoView({behavior: "smooth"})
                 }}></Button>            </div>
             <div ref={mainRef} className="bg-black h-20">
-                <h1 className=" text-center text-2xl sm:text-3xl text-white translate-y-3/4 sm:translate-y-1/2 :translate-y-1/2">Discover favourited collection</h1>
+                <h1 className=" text-center text-2xl sm:text-3xl text-white translate-y-3/4 sm:translate-y-1/2 :translate-y-1/2">Discover your own collection</h1>
             </div>
 
 
 
 
-            {/* Main image and image border */}
+            {/* Artwork and Sculptures Switch Component */}
             <div className="h-max w-full bg-contain overflow-hidden pb-20" style={{ backgroundImage: "url(" + "https://i.ibb.co/yYXg8By/white-damask-wallpaper-with-floral-patterns-HMCFAN.jpg" + ")" }}>
                 <Segmented options={[{ label: "Artwork", value: 1, icon: <PictureFilled /> }, { label: "Sculpture", value: 2, icon: <TrophyFilled /> }]} onChange={() => {
                     setTab(!tab);
@@ -99,6 +100,7 @@ export const FavouritesPage = ({ setFavArt, favArt }) => {
                 }}
                     className="w-fit flex mr-auto ml-auto mt-5 border border-black p-2 text-lg mb-10"
                 />
+                {/* Both Artwork and Sculptures Images and borders/pedestal */}
                 {tab ?
                         <Tooltip title="Click image for a better view!" defaultOpen trigger="contextMenu">
                             <div>
@@ -122,6 +124,8 @@ export const FavouritesPage = ({ setFavArt, favArt }) => {
                         </div>
                     </>
                 }
+
+                {/* Interaction buttons */}
                 {tab ?
                     <Row justify={"space-between"} className="mt-2 mb-2 max-w-xs mr-auto ml-auto">
                         <Row span={4}></Row>
@@ -203,6 +207,8 @@ export const FavouritesPage = ({ setFavArt, favArt }) => {
                     </> : <p></p>}
                 </Drawer>
             </div>
+
+            {/* Footer */}
             <div className="h-45 w-full bg-black">
                     <div className="h-5"></div>
                     <div className="border-t w-full divide-x-2 divide-solid divide-white"></div>

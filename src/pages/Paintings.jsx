@@ -63,6 +63,7 @@ export function PaintingsPage({ setFavArt, favArt }) {
 
     return (
         <>
+            {/* Hero Page and Background Images */}
             <Carousel autoplay autoplaySpeed={2000} >
                 {paintingPics.map((bg, i) => {
                     return <img key={i} className="h-screen w-full bg-cover object-cover" src={bg}></img>
@@ -76,10 +77,10 @@ export function PaintingsPage({ setFavArt, favArt }) {
                      mainRef.current.scrollIntoView({behavior: "smooth"})
                 }}></Button>            </div>
             <div className="bg-black h-20" ref={mainRef}>
-                <h1 className=" text-center text-2xl sm:text-3xl text-white translate-y-3/4 sm:translate-y-1/2 :translate-y-1/2">Discover your favourite collection</h1>
+                <h1 className=" text-center text-2xl sm:text-3xl text-white translate-y-3/4 sm:translate-y-1/2 :translate-y-1/2">Discover your favourite artwork</h1>
             </div>
 
-            {/* Main Image and Image-Border */}
+            {/* Main Painting images and picture frame and background image */}
             <div className="h-max w-full bg-contain" style={{backgroundImage: "url("+"https://i.ibb.co/yYXg8By/white-damask-wallpaper-with-floral-patterns-HMCFAN.jpg"+")"}}>
             <div className="p-1 max-w-2xl mr-auto ml-auto">
                 <Tooltip title="Click image for a better view!" defaultOpen trigger="contextMenu">
@@ -91,7 +92,7 @@ export function PaintingsPage({ setFavArt, favArt }) {
                 </Tooltip>
 
 
-                {/* Image buttons */}
+                {/* Interaction Buttons */}
                 <Row justify={"space-between"} className="mt-2 mb-2 max-w-xs mr-auto ml-auto">
                     <Row span={4}>
                         {keySearch
@@ -169,6 +170,8 @@ export function PaintingsPage({ setFavArt, favArt }) {
                     <SearchBar setKeySearch={setKeySearch} />
                 </div>
             </div>
+
+            {/* Footer */}
             <div className="h-45 w-full bg-black mt-16">
                     <div className="h-5"></div>
                     <div className="border-t w-full divide-x-2 divide-solid divide-white"></div>

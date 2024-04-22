@@ -16,15 +16,15 @@ export const SculpturesPage = ({ favArt, setFavArt }) => {
     const [fav, setFav] = useState(false);
 
     useEffect(() => {
-        if(keySearch === ''){
+        if (keySearch === '') {
             getSculptureData().then((data) => {
-                if(data.length){
+                if (data.length) {
                     setSculptures(data);
                     setLoading(false);
                 }
-            }).catch((err)=>console.log(err));
-        }else{
-            getSearchedSculptures(keySearch).then((data)=> {
+            }).catch((err) => console.log(err));
+        } else {
+            getSearchedSculptures(keySearch).then((data) => {
                 setSculptures(data);
                 setLoading(false);
             })
@@ -70,7 +70,8 @@ export const SculpturesPage = ({ favArt, setFavArt }) => {
 
     return (
         <>
-        <Carousel autoplay autoplaySpeed={2000} >
+            {/* Hero page and Background images */}
+            <Carousel autoplay autoplaySpeed={2000} >
                 {sculpturePics.map((bg, i) => {
                     return <img key={i} className="h-screen w-full bg-cover object-cover" src={bg}></img>
                 })}
@@ -79,27 +80,27 @@ export const SculpturesPage = ({ favArt, setFavArt }) => {
                 <h1 className="text-center text-6xl underline text-white">Sculptures</h1>
                 <p className="text-center text-2xl text-white mt-10 sm:mt-5">Welcome to the sculptures virtual exhibition!</p>
                 <p className="text-center text-2xl text-white mt-10 sm:mt-5">Browse to find your favourite sculptures!</p>
-                <Button shape="circle" className="flex mr-auto ml-auto justify-center mt-5 border border-white hover:border-2" type="text" icon={<ArrowDownOutlined className="text-white mt-0.5"/>} onClick={()=>{
-                     mainRef.current.scrollIntoView({behavior: "smooth"})
+                <Button shape="circle" className="flex mr-auto ml-auto justify-center mt-5 border border-white hover:border-2" type="text" icon={<ArrowDownOutlined className="text-white mt-0.5" />} onClick={() => {
+                    mainRef.current.scrollIntoView({ behavior: "smooth" })
                 }}></Button>            </div>
             <div className="bg-black h-20" ref={mainRef}>
-                <h1 className=" text-center text-2xl sm:text-3xl text-white translate-y-3/4 sm:translate-y-1/2 :translate-y-1/2">Discover your favourite collection</h1>
+                <h1 className=" text-center text-2xl sm:text-3xl text-white translate-y-3/4 sm:translate-y-1/2 :translate-y-1/2">Discover your favourite sculptures</h1>
             </div>
 
-
-            <div className="w-full bg-cover overflow-clip pb-20" style={{backgroundImage: "url("+"https://i.ibb.co/yYXg8By/white-damask-wallpaper-with-floral-patterns-HMCFAN.jpg"+")"}}>
+            {/* Main Sculptures Images and background image */}
+            <div className="w-full bg-cover overflow-clip pb-20" style={{ backgroundImage: "url(" + "https://i.ibb.co/yYXg8By/white-damask-wallpaper-with-floral-patterns-HMCFAN.jpg" + ")" }}>
                 <div className="mr-auto ml-auto w-fit left-0 right-0 text-center pt-10">
-            <Tooltip title="Click image for a better view!" defaultOpen trigger="contextMenu">
-                    <div>
-                    <Spin spinning={loading}>
-                    <img className="absolute" src="https://i.ibb.co/x3yR55p/file.png" style={{width:400, height:400, marginTop: 305}} draggable={false}/>
-                        {sculptures.length > 0 && sculptures.length !== 0  ?<Image width={350} height={350} src={sculptures.length && sculptures[count].images ? sculptures[count].images[0].baseimageurl : <Empty />} className="border-4 border-black rounded-lg absolute object-contain bg-white border-double"></Image> : <div style={{height: 350, width: 350}} className="border border-black rounded-lg object-contain bg-white"><h1 className="mt-28">{sculptures.length === 0 && keySearch ? <Empty description={"No Sculptures Found!"} /> : ""}</h1></div> }
-                    </Spin>
-                    </div>
-                </Tooltip>
+                    <Tooltip title="Click image for a better view!" defaultOpen trigger="contextMenu">
+                        <div>
+                            <Spin spinning={loading}>
+                                <img className="absolute" src="https://i.ibb.co/x3yR55p/file.png" style={{ width: 400, height: 400, marginTop: 305 }} draggable={false} />
+                                {sculptures.length > 0 && sculptures.length !== 0 ? <Image width={350} height={350} src={sculptures.length && sculptures[count].images ? sculptures[count].images[0].baseimageurl : <Empty />} className="border-4 border-black rounded-lg absolute object-contain bg-white border-double"></Image> : <div style={{ height: 350, width: 350 }} className="border border-black rounded-lg object-contain bg-white"><h1 className="mt-28">{sculptures.length === 0 && keySearch ? <Empty description={"No Sculptures Found!"} /> : ""}</h1></div>}
+                            </Spin>
+                        </div>
+                    </Tooltip>
                 </div>
 
-                {/* Image buttons */}
+                {/* Interaction Buttons */}
                 <Row justify={"space-between"} className="mt-20 mb-2 max-w-xs mr-auto ml-auto">
                     <Row span={4}>
                         {keySearch
@@ -135,7 +136,7 @@ export const SculpturesPage = ({ favArt, setFavArt }) => {
                         }}> </Button>
                     </Row>
                     <Row span={4}>
-                        {fav || (sculptures.length && favArt.some(obj=> sculptures[count].id === obj.id))
+                        {fav || (sculptures.length && favArt.some(obj => sculptures[count].id === obj.id))
                             ? <Button loading={loading} className="bg-white" onClick={() => {
                                 setFav(false);
                                 removeFromFav(sculptures[count].id);
@@ -148,56 +149,59 @@ export const SculpturesPage = ({ favArt, setFavArt }) => {
                     </Row>
                 </Row>
 
-                        {/* Information Drawer and Button */}
-        <Drawer onClose={onClose} open={open} size="default" extra={
-            <Space>
-                <Button onClick={onClose}>OK</Button>
-            </Space>
-        }>
-            {/* Drawer artwork information */}
-            {sculptures.length ? <>
-            <p className="text-2xl sm:text-4xl font-bold underline mb-1">{sculptures[count].title}</p>
-            <p className="text-lg mb-1">{sculptures[count].dated}</p>
-            <p className="underline text-lg">{sculptures[count].people ? sculptures[count].people[0].name : "No artist found"}</p>
-            <p className="mb-1">{sculptures[count].culture}</p> 
-            <p>{sculptures[count].medium}</p>
-            <Divider>Description</Divider>
-            {sculptures[count].description !== null ? <p className="indent-1 first-letter:text-6xl first-letter:font-bold first-letter:me-2 first-letter:float-start">{sculptures[count].description}</p> : <p>No Description Found</p>}
-            <Divider>Current Location</Divider>
-            <p>{sculptures[count].provenance ? sculptures[count].provenance : "No Location Found." }</p>
-            </> 
-            : <Empty/> }
-        </Drawer>
+                {/* Information Drawer and Button */}
+                <Drawer onClose={onClose} open={open} size="default" extra={
+                    <Space>
+                        <Button onClick={onClose}>OK</Button>
+                    </Space>
+                }>
+                    {/* Drawer sculptures information */}
+                    {sculptures.length ? <>
+                        <p className="text-2xl sm:text-4xl font-bold underline mb-1">{sculptures[count].title}</p>
+                        <p className="text-lg mb-1">{sculptures[count].dated}</p>
+                        <p className="underline text-lg">{sculptures[count].people ? sculptures[count].people[0].name : "No artist found"}</p>
+                        <p className="mb-1">{sculptures[count].culture}</p>
+                        <p>{sculptures[count].medium}</p>
+                        <Divider>Description</Divider>
+                        {sculptures[count].description !== null ? <p className="indent-1 first-letter:text-6xl first-letter:font-bold first-letter:me-2 first-letter:float-start">{sculptures[count].description}</p> : <p>No Description Found</p>}
+                        <Divider>Current Location</Divider>
+                        <p>{sculptures[count].provenance ? sculptures[count].provenance : "No Location Found."}</p>
+                    </>
+                        : <Empty />}
+                </Drawer>
+
                 {/* Search bar  */}
                 <div className="max-w-xs ml-auto mr-auto bg-white">
-            <SearchBar setKeySearch={setKeySearch}/>
+                    <SearchBar setKeySearch={setKeySearch} />
+                </div>
             </div>
-        </div>
-        <div className="h-45 w-full bg-black">
-                    <div className="h-5"></div>
-                    <div className="border-t w-full divide-x-2 divide-solid divide-white"></div>
-                    <div className="text-white flex justify-center text-xl mt-3">
-                        <Link to="/ReturnersExhibition/">
-                            <h1 className="sm:mr-5 mr-3 hover:underline">Home</h1>
-                        </Link>
-                        <Link to="/ReturnersExhibition/favourites">
-                            <h1 className="sm:mr-5 mr-3 hover:underline">Favourites</h1>
-                        </Link>
-                        <Link to="/ReturnersExhibition/sculptures">
-                            <h1 className="sm:mr-5 mr-3 hover:underline">Sculptures</h1>
-                        </Link>
-                        <Link to="/ReturnersExhibition/paintings">
-                            <h1 className="hover:underline">Artwork</h1>
-                        </Link>
-                    </div>
-                    <div className="border-t w-full divide-x-2 divide-solid divide-white mt-3"></div>
-                    <div className="flex justify-center text-white text-4xl mt-5">
+
+            {/* Footer */}
+            <div className="h-45 w-full bg-black">
+                <div className="h-5"></div>
+                <div className="border-t w-full divide-x-2 divide-solid divide-white"></div>
+                <div className="text-white flex justify-center text-xl mt-3">
+                    <Link to="/ReturnersExhibition/">
+                        <h1 className="sm:mr-5 mr-3 hover:underline">Home</h1>
+                    </Link>
+                    <Link to="/ReturnersExhibition/favourites">
+                        <h1 className="sm:mr-5 mr-3 hover:underline">Favourites</h1>
+                    </Link>
+                    <Link to="/ReturnersExhibition/sculptures">
+                        <h1 className="sm:mr-5 mr-3 hover:underline">Sculptures</h1>
+                    </Link>
+                    <Link to="/ReturnersExhibition/paintings">
+                        <h1 className="hover:underline">Artwork</h1>
+                    </Link>
+                </div>
+                <div className="border-t w-full divide-x-2 divide-solid divide-white mt-3"></div>
+                <div className="flex justify-center text-white text-4xl mt-5">
                     <InstagramOutlined className="mr-3" />
                     <FacebookOutlined className="mr-3" />
                     <TwitterOutlined className="mr-3" />
-                    </div>
-                    <p className="text-white mt-5 text-right mr-5">Privacy Policy | Terms of Use | Copyright © 2024 Exhibition Curator Project</p>
                 </div>
+                <p className="text-white mt-5 text-right mr-5">Privacy Policy | Terms of Use | Copyright © 2024 Exhibition Curator Project</p>
+            </div>
         </>
     )
 }

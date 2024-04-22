@@ -1,5 +1,5 @@
-import { ArrowDownOutlined, BorderBottomOutlined, FacebookOutlined, InstagramOutlined, TwitterOutlined } from "@ant-design/icons";
-import { Button, Card, Carousel, Col, ConfigProvider, Divider, Row } from "antd";
+import { ArrowDownOutlined, FacebookOutlined, InstagramOutlined, TwitterOutlined } from "@ant-design/icons";
+import { Button, Card, Carousel, Col, Row } from "antd";
 import Meta from "antd/es/card/Meta";
 import React, { useRef } from "react";
 import { Link } from "react-router-dom";
@@ -16,6 +16,7 @@ export function HomePage() {
 
     return (
         <>
+            {/* Hero Page and Background Images */}
             <Carousel autoplay autoplaySpeed={2000}>
                 {homePics.map((bg, i) => {
                     return <img key={i} className="h-screen w-full bg-cover object-cover" src={bg}></img>
@@ -30,6 +31,8 @@ export function HomePage() {
                      mainRef.current.scrollIntoView({behavior: "smooth"})
                 }}></Button>
             </div>
+
+            {/* Explore, Immerse, Uncover strips */}
             <div className="bg-black h-56 w-full max-w-full overflow-hidden">
                 <div className="flex justify-between">
                     <h1 className="text-4xl sm:text-5xl text-white pt-20 sm:ml-20 sm:mr-20 ml-5 mr-5 underline">Explore</h1>
@@ -53,6 +56,7 @@ export function HomePage() {
             </div>
             <div className="w-full bg-cover overflow-hidden" style={{backgroundImage: "url("+"https://cdn.pixabay.com/photo/2016/09/05/15/07/concrete-1646788_1280.jpg"+")"}}>
             
+            {/* Discover Artworks and Sculptures Cards */}
             <div>
                 <Row justify={"center"} className="mr-auto ml-auto p-2 pt-4">
                     <Col span={24} md={12} className="mb-5">
@@ -82,6 +86,8 @@ export function HomePage() {
                     </Col>
                 </Row>
                 </div>
+
+                {/* Footer */}
                 <div className="h-45 w-full bg-black mt-16">
                     <div className="h-5"></div>
                     <div className="border-t w-full divide-x-2 divide-solid divide-white"></div>
