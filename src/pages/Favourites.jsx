@@ -65,7 +65,7 @@ export const FavouritesPage = ({ setFavArt, favArt }) => {
                 })}
             </Carousel>
             <div className="p-5 bg-black/80 w-3/4 h-fit sm:w-1/2 sm:h-1/2 absolute top-0 right-0 left-0 mr-auto ml-auto translate-y-1/3 sm:translate-y-1/2 border-4 border-double">
-                <h1 className="text-center text-5xl text-white">Your Collection!</h1>
+                <h1 className="text-center text-5xl text-white underline">Your Collection</h1>
                 <p className="text-center text-2xl text-white mt-10 sm:mt-5">Welcome to your favourited art pieces!</p>
                 <p className="text-center text-2xl text-white mt-10 sm:mt-5">Browse your favourited pieces!</p>
                 <Button shape="circle" className="flex mr-auto ml-auto justify-center mt-5 border border-white hover:border-2" type="text" icon={<ArrowDownOutlined className="text-white mt-0.5"/>} onClick={()=>{
