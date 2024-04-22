@@ -22,8 +22,8 @@ export function HomePage() {
                 })}
 
             </Carousel>
-            <div className="p-5 bg-black/70 w-3/4 h-fit sm:w-1/2 sm:h-1/2 absolute top-0 right-0 left-0 mr-auto ml-auto translate-y-1/3 sm:translate-y-1/2">
-                <h1 className="text-center text-6xl underline text-white">Welcome</h1>
+            <div className="p-5 bg-black/80 w-3/4 h-fit sm:w-1/2 sm:h-1/2 absolute top-0 right-0 left-0 mr-auto ml-auto translate-y-1/3 sm:translate-y-1/2 border-4 border-double">
+                <h1 className="text-center text-6xl text-white underline">Welcome</h1>
                 <p className="text-center text-2xl text-white mt-10 sm:mt-5">Welcome to the exhibition curator project!</p>
                 <p className="text-center text-2xl text-white mt-10 sm:mt-5">Browse to find your favourite artworks and sculptures!</p>
                 <Button shape="circle" className="flex mr-auto ml-auto justify-center mt-5 border border-white hover:border-2" type="text" icon={<ArrowDownOutlined className="text-white mt-0.5"/>} onClick={()=>{
@@ -48,11 +48,13 @@ export function HomePage() {
                     <img className="h-56 w-full object-cover hover:shadow-xl hover:shadow-white hover:border-white hover:border-2 border-2 border-black" src="https://images.squarespace-cdn.com/content/v1/5fca7df73e95df765ab2e5d6/1616068491507-TPV9LVH79KUZYM6YGN9G/Concepticide.jpg" />
                 </div>
             </div>
-            <div ref={mainRef} className="bg-black h-20 mt-4 mb-2">
+            <div ref={mainRef} className="bg-black h-20">
                 <h1 className="text-center text-3xl text-white translate-y-1/2">Discover your collection</h1>
             </div>
+            <div className="w-full bg-cover overflow-hidden" style={{backgroundImage: "url("+"https://cdn.pixabay.com/photo/2016/09/05/15/07/concrete-1646788_1280.jpg"+")"}}>
+            
             <div>
-                <Row justify={"center"} className="mr-auto ml-auto p-2">
+                <Row justify={"center"} className="mr-auto ml-auto p-2 pt-4">
                     <Col span={24} md={12} className="mb-5">
                         <Card hoverable className="w-3/4 mr-auto ml-auto"
                             cover={<img className="h-64 object-cover" src="https://cdn.sanity.io/images/cctd4ker/production/cac9d74f4b7a291507a7dfa901cdc54ad6e661ff-700x440.png"
@@ -79,6 +81,7 @@ export function HomePage() {
                         </Card>
                     </Col>
                 </Row>
+                </div>
                 <div className="h-45 w-full bg-black mt-16">
                     <div className="h-5"></div>
                     <div className="border-t w-full divide-x-2 divide-solid divide-white"></div>
@@ -102,7 +105,7 @@ export function HomePage() {
                     <FacebookOutlined className="mr-3" />
                     <TwitterOutlined className="mr-3" />
                     </div>
-                    <p className="text-white mt-5">Privacy Policy | Terms of Use | Copyright © 2024 Exhibition Curator Project</p>
+                    <p className="text-white mt-5 text-right mr-5">Privacy Policy | Terms of Use | Copyright © 2024 Exhibition Curator Project</p>
                 </div>
             </div>
         </>

@@ -1,6 +1,6 @@
 import { ArrowDownOutlined, FacebookOutlined, InfoCircleOutlined, InstagramOutlined, LeftCircleOutlined, PictureFilled, RightCircleOutlined, StarFilled, StarOutlined, TrophyFilled, TwitterOutlined } from "@ant-design/icons";
 import { Button, Carousel, Divider, Drawer, Empty, Image, Row, Segmented, Space, Spin, Tabs, Tooltip } from "antd"
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 
@@ -55,6 +55,8 @@ export const FavouritesPage = ({ setFavArt, favArt }) => {
         "https://www.prm.ox.ac.uk/sites/default/files/prm/images/page/multakaoxford_chandelier.jpg",
     ]
 
+    const mainRef = useRef();
+
     return (
         <>
             <Carousel autoplay autoplaySpeed={2000} >
@@ -62,13 +64,14 @@ export const FavouritesPage = ({ setFavArt, favArt }) => {
                     return <img key={i} className="h-screen w-full bg-cover object-cover" src={bg}></img>
                 })}
             </Carousel>
-            <div className="p-5 bg-black/70 w-3/4 h-fit sm:w-1/2 sm:h-1/2 absolute top-0 right-0 left-0 mr-auto ml-auto translate-y-1/3 sm:translate-y-1/2">
+            <div className="p-5 bg-black/70 w-3/4 h-fit sm:w-1/2 sm:h-1/2 absolute top-0 right-0 left-0 mr-auto ml-auto translate-y-1/3 sm:translate-y-1/2 border-4 border-double">
                 <h1 className="text-center text-5xl text-white">Your Collection!</h1>
                 <p className="text-center text-2xl text-white mt-10 sm:mt-5">Welcome to your favourited art pieces!</p>
                 <p className="text-center text-2xl text-white mt-10 sm:mt-5">Browse your favourited pieces!</p>
-                <h1 className="text-5xl text-white text-center mt-10 sm:mt-5"><ArrowDownOutlined /></h1>
-            </div>
-            <div className="bg-black h-20">
+                <Button shape="circle" className="flex mr-auto ml-auto justify-center mt-5 border border-white hover:border-2" type="text" icon={<ArrowDownOutlined className="text-white mt-0.5"/>} onClick={()=>{
+                     mainRef.current.scrollIntoView({behavior: "smooth"})
+                }}></Button>            </div>
+            <div ref={mainRef} className="bg-black h-20">
                 <h1 className=" text-center text-2xl sm:text-3xl text-white translate-y-3/4 sm:translate-y-1/2 :translate-y-1/2">Discover favourited collection</h1>
             </div>
 
@@ -99,7 +102,7 @@ export const FavouritesPage = ({ setFavArt, favArt }) => {
                                 <div>
                                     <Spin spinning={loading}>
                                         <img className="absolute" src="https://i.ibb.co/x3yR55p/file.png" style={{ width: 400, height: 400, marginTop: 305 }} draggable={false} />
-                                        {favSculpture.length ? <Image width={350} height={350} src={favSculpture[count] ? favSculpture[count].images[0].baseimageurl : <Empty />} className="border border-black rounded-lg absolute object-contain bg-white"></Image> : <div style={{ height: 350, width: 350 }} className="border border-black rounded-lg object-contain bg-white"><h1 className="mt-40">{favSculpture.length === 0 ? <p style={{ height: 350, width: 350 }} >No Sculptures Favourited!</p> : ""}</h1></div>}
+                                        {favSculpture.length ? <Image width={350} height={350} src={favSculpture[count] ? favSculpture[count].images[0].baseimageurl : <Empty />} className="border-4 border-double border-black rounded-lg absolute object-contain bg-white"></Image> : <div style={{ height: 350, width: 350 }} className="border-4 border-double border-black rounded-lg object-contain bg-white"><h1 className="mt-40">{favSculpture.length === 0 ? <p style={{ height: 350, width: 350 }} >No Sculptures Favourited!</p> : ""}</h1></div>}
                                     </Spin>
                                 </div>
                             </Tooltip>
@@ -210,7 +213,7 @@ export const FavouritesPage = ({ setFavArt, favArt }) => {
                     <FacebookOutlined className="mr-3" />
                     <TwitterOutlined className="mr-3" />
                     </div>
-                    <p className="text-white mt-5">Privacy Policy | Terms of Use | Copyright © 2024 Exhibition Curator Project</p>
+                    <p className="text-white mt-5 text-right mr-5">Privacy Policy | Terms of Use | Copyright © 2024 Exhibition Curator Project</p>
                 </div>
         </>
     )
