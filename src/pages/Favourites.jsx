@@ -42,12 +42,25 @@ export const FavouritesPage = ({ setFavArt, favArt }) => {
         setFavArtwork(favArtwork.filter(obj => obj.id !== objId))
         setFavSculpture(favSculpture.filter(obj => obj.id !== objId))
     }
-
+    if(tab){
+        if(count === favArtwork.length){
+            setCount(count-1);
+        }
+    }else {
+        if(count === favSculpture.length){
+            setCount(count-1);
+        }
+    }
+    
     useEffect(() => {
         setFavSculpture(favArt.filter(obj => obj.url.includes("harvard")));
         setFavArtwork(favArt.filter(obj => !obj.url.includes("harvard")));
         setLoading(false);
     }, [favArt])
+
+    useEffect(()=>{
+        setCount(0);
+    },[])
 
     const favouritesPics = [
         "https://www.oneren.org/media/rvbplkjo/secret-collection-3.jpg",
