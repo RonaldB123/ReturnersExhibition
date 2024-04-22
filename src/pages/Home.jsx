@@ -86,16 +86,16 @@ export function HomePage() {
                     <div className="h-5"></div>
                     <div className="border-t w-full divide-x-2 divide-solid divide-white"></div>
                     <div className="text-white flex justify-center text-xl mt-3">
-                        <Link to="/">
+                        <Link to="/ReturnersExhibition/">
                             <h1 className="sm:mr-5 mr-3 hover:underline">Home</h1>
                         </Link>
-                        <Link to="/favourites">
+                        <Link to="/ReturnersExhibition/favourites">
                             <h1 className="sm:mr-5 mr-3 hover:underline">Favourites</h1>
                         </Link>
-                        <Link to="/sculptures">
+                        <Link to="/ReturnersExhibition/sculptures">
                             <h1 className="sm:mr-5 mr-3 hover:underline">Sculptures</h1>
                         </Link>
-                        <Link to="/paintings">
+                        <Link to="/ReturnersExhibition/paintings">
                             <h1 className="hover:underline">Artwork</h1>
                         </Link>
                     </div>

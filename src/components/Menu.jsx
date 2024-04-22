@@ -19,10 +19,10 @@ export const Menu = ({ favArt }) => {
                     badge={{ count: favArt.length || 0 }}
                     icon={<MenuOutlined />}
                 >
-                    <FloatButton onClick={()=> navigate("/paintings")} icon={<PictureFilled />} tooltip={"Paintings"} />
-                    <FloatButton onClick={()=> navigate("/sculptures")} icon={<TrophyFilled />} tooltip={"Antiques/Sculptures"} />
-                    <FloatButton onClick={()=> navigate("/favourites")} icon={<StarFilled />} badge={{ count: favArt.length }} tooltip={"Favourites"} />
-                    <FloatButton onClick={()=> navigate("/")} icon={<HomeFilled />} tooltip={"Home"} />
+                    <FloatButton onClick={()=> navigate("/ReturnersExhibition/paintings")} icon={<PictureFilled />} tooltip={"Paintings"} />
+                    <FloatButton onClick={()=> navigate("/ReturnersExhibition/sculptures")} icon={<TrophyFilled />} tooltip={"Antiques/Sculptures"} />
+                    <FloatButton onClick={()=> navigate("/ReturnersExhibition/favourites")} icon={<StarFilled />} badge={{ count: favArt.length }} tooltip={"Favourites"} />
+                    <FloatButton onClick={()=> navigate("/ReturnersExhibition/")} icon={<HomeFilled />} tooltip={"Home"} />
                 </FloatButton.Group>
         </>
     )

@@ -32,11 +32,11 @@ function App() {
     <>
     <Menu favArt={favArt}/>
       <Routes>
-        <Route path="*" element={<Navigate to="/"/>}/>
-        <Route path="/" element={<HomePage/>}/>
-        <Route path="/favourites" element={<FavouritesPage setFavArt={setFavArt} favArt={favArt}/>}/>
-        <Route path="/sculptures" element={<SculpturesPage favArt={favArt} setFavArt={setFavArt}/>}/>
-        <Route path="/paintings" element={<PaintingsPage setFavArt={setFavArt} favArt={favArt}/>}/>
+        {/* <Route path="*" element={<Navigate to="/"/>}/> */}
+        <Route path="/ReturnersExhibition/" element={<HomePage/>}/>
+        <Route path="/ReturnersExhibition/favourites" element={<FavouritesPage setFavArt={setFavArt} favArt={favArt}/>}/>
+        <Route path="/ReturnersExhibition/sculptures" element={<SculpturesPage favArt={favArt} setFavArt={setFavArt}/>}/>
+        <Route path="/ReturnersExhibition/paintings" element={<PaintingsPage setFavArt={setFavArt} favArt={favArt}/>}/>
       </Routes>    
     </>
   )
