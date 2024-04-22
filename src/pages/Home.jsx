@@ -59,7 +59,7 @@ export function HomePage() {
                         <Card hoverable className="w-3/4 mr-auto ml-auto"
                             cover={<img className="h-64 object-cover" src="https://cdn.sanity.io/images/cctd4ker/production/cac9d74f4b7a291507a7dfa901cdc54ad6e661ff-700x440.png"
                             />}
-                            actions={[<Link to="/paintings">
+                            actions={[<Link to="/ReturnersExhibition/paintings">
                                 <button className="button h-10 mr-auto ml-auto">
                                     <span className="text text-xs sm:text-sm">Discover Artworks</span>
                                     <span className="arrow"></span>
@@ -71,7 +71,7 @@ export function HomePage() {
                     <Col span={24} md={12} className="mb-5">
                         <Card hoverable className="w-3/4 mr-auto ml-auto"
                             cover={<img className="h-64 object-cover" src="https://www.smb.museum/uploads/tx_smb/exhibitions/exhibition_17496/Canova_Raum_5_1920_xl.jpg" />}
-                            actions={[<Link to="/sculptures">
+                            actions={[<Link to="/ReturnersExhibition/sculptures">
                                 <button className="button h-10 mr-auto ml-auto">
                                     <span className="text text-xs sm:text-sm">Discover Sculptures</span>
                                     <span className="arrow"></span>
