@@ -32,6 +32,7 @@ function App() {
     <>
     <Menu favArt={favArt}/>
       <Routes>
+        <Route path="/ReturnersExhibition" element={<HomePage/>}/>
         <Route path="/" element={<HomePage/>}/>
         <Route path="/favourites" element={<FavouritesPage setFavArt={setFavArt} favArt={favArt}/>}/>
         <Route path="/sculptures" element={<SculpturesPage favArt={favArt} setFavArt={setFavArt}/>}/>
