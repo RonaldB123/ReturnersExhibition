@@ -1,4 +1,4 @@
-import { Route, Routes, useLocation } from "react-router-dom"
+import { Navigate, Route, Routes, useLocation } from "react-router-dom"
 import { HomePage } from "./pages/Home"
 import { useEffect, useState } from "react"
 import { Menu } from "./components/Menu";
@@ -32,7 +32,7 @@ function App() {
     <>
     <Menu favArt={favArt}/>
       <Routes>
-        <Route path="/ReturnersExhibition" element={<HomePage/>}/>
+        <Route path="*" element={<Navigate to="/"/>}/>
         <Route path="/" element={<HomePage/>}/>
         <Route path="/favourites" element={<FavouritesPage setFavArt={setFavArt} favArt={favArt}/>}/>
         <Route path="/sculptures" element={<SculpturesPage favArt={favArt} setFavArt={setFavArt}/>}/>
